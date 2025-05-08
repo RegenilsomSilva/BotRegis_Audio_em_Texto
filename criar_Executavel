@@ -1,0 +1,949 @@
+import sys
+from cx_Freeze import setup, Executable
+
+# Dependências
+build_exe_options = {
+    "packages": [
+        "os", "whisper", "PySimpleGUI", "datetime", "sys", "numba", 
+        "subprocess", "numba.core.types.old_scalars", "numba.core.datamodel.old_models",
+        "numba.cpython.old_builtins", "numba.core.typing.old_builtins",
+        "numba.core.typing.old_cmathdecl", "numba.core.typing.old_mathdecl",
+        "numba.cpython.old_hashing", "numba.cpython.old_numbers",
+        "numba.cpython.old_tupleobj", "numba.np.old_arraymath",
+        "numba.np.random.old_distributions", "numba.np.random.old_random_methods",
+        "numba.cpython.old_mathimpl", "numba.core.old_boxing"
+    ],
+    "include_files": [
+        # Inclua a pasta de modelos whisper se você já tiver baixado
+        ("whisper_models", "whisper_models")
+    ],
+    "excludes": ["tkinter"],
+    "include_msvcr": True,
+}
+
+base = None
+if sys.platform == "win32":
+    base = "Win32GUI"  # para aplicativo sem console
+
+setup(
+    name="Transcricao-Audio",
+    version="1.0",
+    description="Aplicativo de Transcrição de Áudio com IA",
+    options={"build_exe": build_exe_options},
+    executables=[Executable("DESENVOLVIMENTO.PY", base=base, target_name="Transcricao.exe", icon=None)]
+)
+
+'''
+m trio._ssl                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_ssl.py
+m trio._subprocess          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_subprocess.py
+P trio._subprocess_platform C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_subprocess_platform\__init__.py
+m trio._subprocess_platform.kqueue C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_subprocess_platform\kqueue.py
+m trio._subprocess_platform.waitid C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_subprocess_platform\waitid.py
+m trio._subprocess_platform.windows C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_subprocess_platform\windows.py
+m trio._sync                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_sync.py
+m trio._threads             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_threads.py
+m trio._timeouts            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_timeouts.py
+m trio._unix_pipes          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_unix_pipes.py
+m trio._util                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_util.py
+m trio._version             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_version.py
+m trio._wait_for_object     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_wait_for_object.py
+m trio._windows_pipes       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\_windows_pipes.py
+m trio.abc                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\abc.py
+m trio.from_thread          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\from_thread.py
+m trio.lowlevel             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\lowlevel.py
+m trio.socket               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\socket.py
+m trio.to_thread            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\trio\to_thread.py
+m tty                       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\tty.py
+P typeguard                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\__init__.py
+m typeguard._checkers       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_checkers.py
+m typeguard._config         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_config.py
+m typeguard._decorators     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_decorators.py
+m typeguard._exceptions     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_exceptions.py
+m typeguard._functions      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_functions.py
+m typeguard._importhook     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_importhook.py
+m typeguard._memo           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_memo.py
+m typeguard._suppression    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_suppression.py
+m typeguard._transformer    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_transformer.py
+m typeguard._union_transformer C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_union_transformer.py
+m typeguard._utils          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\typeguard\_utils.py
+m types                     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\types.py
+m typing                    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\typing.py
+m typing_extensions         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\typing_extensions.py
+m unicodedata               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\DLLs\unicodedata.pyd
+P unittest                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\__init__.py
+m unittest._log             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\_log.py
+m unittest.async_case       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\async_case.py
+m unittest.case             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py
+m unittest.loader           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\loader.py
+m unittest.main             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\main.py
+m unittest.mock             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\mock.py
+m unittest.result           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\result.py
+m unittest.runner           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\runner.py
+m unittest.signals          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\signals.py
+m unittest.suite            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\suite.py
+m unittest.util             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\unittest\util.py
+P urllib                    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\urllib\__init__.py
+m urllib.error              C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\urllib\error.py
+m urllib.parse              C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\urllib\parse.py
+m urllib.request            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py
+m urllib.response           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\urllib\response.py
+P urllib3                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\__init__.py
+m urllib3._base_connection  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\_base_connection.py
+m urllib3._collections      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\_collections.py
+m urllib3._request_methods  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\_request_methods.py
+m urllib3._version          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\_version.py
+m urllib3.connection        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connection.py
+m urllib3.connectionpool    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py
+P urllib3.contrib           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\contrib\__init__.py
+m urllib3.contrib.pyopenssl C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\contrib\pyopenssl.py
+m urllib3.contrib.socks     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\contrib\socks.py
+m urllib3.exceptions        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\exceptions.py
+m urllib3.fields            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\fields.py
+m urllib3.filepost          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\filepost.py
+m urllib3.poolmanager       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\poolmanager.py
+m urllib3.response          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\response.py
+P urllib3.util              C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\__init__.py
+m urllib3.util.connection   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\connection.py
+m urllib3.util.proxy        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\proxy.py
+m urllib3.util.request      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\request.py
+m urllib3.util.response     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\response.py
+m urllib3.util.retry        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\retry.py
+m urllib3.util.ssl_         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\ssl_.py
+m urllib3.util.ssl_match_hostname C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\ssl_match_hostname.py
+m urllib3.util.ssltransport C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\ssltransport.py
+m urllib3.util.timeout      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\timeout.py
+m urllib3.util.url          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\url.py
+m urllib3.util.util         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\util.py
+m urllib3.util.wait         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\wait.py
+m uu                        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\uu.py
+m uuid                      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\uuid.py
+m warnings                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\warnings.py
+m wave                      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\wave.py
+P wcwidth                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\__init__.py
+m wcwidth.table_vs16        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\table_vs16.py
+m wcwidth.table_wide        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\table_wide.py
+m wcwidth.table_zero        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\table_zero.py
+m wcwidth.unicode_versions  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\unicode_versions.py
+m wcwidth.wcwidth           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\wcwidth\wcwidth.py
+m weakref                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\weakref.py
+m webbrowser                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\webbrowser.py
+P wheel                     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\__init__.py
+P wheel.cli                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\cli\__init__.py
+m wheel.cli.convert         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\cli\convert.py
+m wheel.cli.pack            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\cli\pack.py
+m wheel.cli.tags            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\cli\tags.py
+m wheel.cli.unpack          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\cli\unpack.py
+m wheel.macosx_libfile      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\macosx_libfile.py
+m wheel.metadata            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\metadata.py
+m wheel.util                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\util.py
+P wheel.vendored            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\__init__.py
+P wheel.vendored.packaging  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\__init__.py
+m wheel.vendored.packaging._elffile C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_elffile.py
+m wheel.vendored.packaging._manylinux C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_manylinux.py
+m wheel.vendored.packaging._musllinux C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_musllinux.py
+m wheel.vendored.packaging._parser C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_parser.py
+m wheel.vendored.packaging._structures C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_structures.py
+m wheel.vendored.packaging._tokenizer C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\_tokenizer.py
+m wheel.vendored.packaging.markers C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\markers.py
+m wheel.vendored.packaging.requirements C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\requirements.py
+m wheel.vendored.packaging.specifiers C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\specifiers.py
+m wheel.vendored.packaging.tags C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\tags.py
+m wheel.vendored.packaging.utils C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\utils.py
+m wheel.vendored.packaging.version C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\vendored\packaging\version.py
+m wheel.wheelfile           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\wheel\wheelfile.py
+P whisper                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\__init__.py
+m whisper.__main__          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\__main__.py
+m whisper.audio             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\audio.py
+m whisper.decoding          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\decoding.py
+m whisper.model             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\model.py
+P whisper.normalizers       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\normalizers\__init__.py
+m whisper.normalizers.basic C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\normalizers\basic.py
+m whisper.normalizers.english C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\normalizers\english.py
+m whisper.timing            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\timing.py
+m whisper.tokenizer         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\tokenizer.py
+m whisper.transcribe        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\transcribe.py
+m whisper.triton_ops        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\triton_ops.py
+m whisper.utils             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\utils.py
+m whisper.version           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\version.py
+m win32api                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\win32api.pyd
+m win32clipboard            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\win32clipboard.pyd
+P win32com                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32com\__init__.py
+P win32com.shell            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32comext\shell\__init__.py
+m win32com.shell.shell      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32comext\shell\shell.pyd
+m win32com.shell.shellcon   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32comext\shell\shellcon.py
+m win32con                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\lib\win32con.py
+m win32evtlog               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\win32evtlog.pyd
+m win32evtlogutil           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\lib\win32evtlogutil.py
+m win32pdh                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\win32pdh.pyd
+m winerror                  C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\win32\lib\winerror.py
+m winreg
+P xml                       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\__init__.py
+P xml.dom                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\__init__.py
+m xml.dom.NodeFilter        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\NodeFilter.py
+m xml.dom.domreg            C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\domreg.py
+m xml.dom.expatbuilder      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\expatbuilder.py
+m xml.dom.minicompat        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\minicompat.py
+m xml.dom.minidom           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\minidom.py
+m xml.dom.pulldom           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\pulldom.py
+m xml.dom.xmlbuilder        C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\dom\xmlbuilder.py
+P xml.etree                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\etree\__init__.py
+m xml.etree.ElementPath     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\etree\ElementPath.py
+m xml.etree.ElementTree     C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\etree\ElementTree.py
+m xml.etree.cElementTree    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\etree\cElementTree.py
+P xml.parsers               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\parsers\__init__.py
+m xml.parsers.expat         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\parsers\expat.py
+P xml.sax                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\__init__.py
+m xml.sax._exceptions       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\_exceptions.py
+m xml.sax.expatreader       C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\expatreader.py
+m xml.sax.handler           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\handler.py
+m xml.sax.saxutils          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\saxutils.py
+m xml.sax.xmlreader         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xml\sax\xmlreader.py
+P xmlrpc                    C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xmlrpc\__init__.py
+m xmlrpc.client             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xmlrpc\client.py
+m xmlrpc.server             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\xmlrpc\server.py
+P yaml                      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\__init__.py
+m yaml._yaml                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\_yaml.cp311-win_amd64.pyd
+m yaml.composer             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\composer.py
+m yaml.constructor          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\constructor.py
+m yaml.cyaml                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\cyaml.py
+m yaml.dumper               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\dumper.py
+m yaml.emitter              C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\emitter.py
+m yaml.error                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\error.py
+m yaml.events               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\events.py
+m yaml.loader               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\loader.py
+m yaml.nodes                C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\nodes.py
+m yaml.parser               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\parser.py
+m yaml.reader               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\reader.py
+m yaml.representer          C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\representer.py
+m yaml.resolver             C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\resolver.py
+m yaml.scanner              C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\scanner.py
+m yaml.serializer           C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\serializer.py
+m yaml.tokens               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\yaml\tokens.py
+m zipfile                   C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\zipfile.py
+m zipimport                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\zipimport.py
+P zipp                      C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\zipp\__init__.py
+P zipp.compat               C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\zipp\compat\__init__.py
+m zipp.compat.py310         C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\zipp\compat\py310.py
+m zipp.glob                 C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\setuptools\_vendor\zipp\glob.py
+m zlib
+Missing modules:
+?  imported from torch._inductor.lowering
+? Cython.Compiler.Main imported from setuptools.command.build_ext
+? IPython.Shell imported from sympy.interactive.session
+? IPython.frontend.terminal imported from sympy.interactive.session
+? IPython.frontend.terminal.interactiveshell imported from sympy.interactive.printing
+? IPython.html.widgets imported from tqdm.notebook
+? IPython.iplib imported from sympy.interactive.printing
+? OpenSSL imported from trio._dtls
+? OpenSSL.SSL imported from urllib3.contrib.pyopenssl
+? OpenSSL.crypto imported from urllib3.contrib.pyopenssl
+? PyQt4 imported from IPython.external.qt_loaders
+? PyQt5 imported from IPython.external.qt_loaders, IPython.terminal.pt_inputhooks
+? PyQt6 imported from IPython.external.qt_loaders, IPython.terminal.pt_inputhooks
+? PySide imported from IPython.external.qt_loaders
+? PySide2 imported from IPython.external.qt_loaders, IPython.terminal.pt_inputhooks
+? PySide6 imported from IPython.external.qt_loaders, IPython.terminal.pt_inputhooks
+? System imported from IPython.utils._process_cli
+? _curses imported from curses, curses.has_key
+? _dbm imported from dbm.ndbm
+? _gdbm imported from dbm.gnu
+? _pytest.python_api imported from torch._dynamo.variables.user_defined
+? _pytest.recwarn imported from torch._dynamo.variables.user_defined
+? all imported from sympy.testing.runtests
+? amdsmi imported from torch.cuda, torch.cuda.memory
+? annotationlib imported from attr._compat
+? apport_python_hook imported from trio._core._multierror
+? argcomplete imported from traitlets.config.argcomplete_config, traitlets.config.loader
+? astroid imported from asttokens.astroid_compat
+? astroid.node_classes imported from asttokens.astroid_compat
+? astroid.nodes imported from asttokens.astroid_compat
+? astunparse imported from torch.jit.frontend
+? asyncio.AbstractEventLoop imported from prompt_toolkit.application.application, prompt_toolkit.eventloop.inputhook, prompt_toolkit.input.vt100
+? asyncio.FIRST_COMPLETED imported from prompt_toolkit.renderer
+? asyncio.Future imported from prompt_toolkit.application.application, prompt_toolkit.application.run_in_terminal, prompt_toolkit.renderer
+? asyncio.Task imported from prompt_toolkit.application.application, prompt_toolkit.key_binding.key_processor
+? asyncio.ensure_future imported from prompt_toolkit.application.application, prompt_toolkit.application.run_in_terminal, prompt_toolkit.renderer
+? asyncio.get_running_loop imported from prompt_toolkit.application.application, prompt_toolkit.eventloop.async_generator, prompt_toolkit.eventloop.inputhook, prompt_toolkit.eventloop.utils, prompt_toolkit.history, prompt_toolkit.input.vt100, prompt_toolkit.input.win32, prompt_toolkit.shortcuts.dialogs, prompt_toolkit.shortcuts.prompt
+? asyncio.sleep imported from prompt_toolkit.application.application, prompt_toolkit.key_binding.key_processor, prompt_toolkit.renderer
+? asyncio.wait imported from prompt_toolkit.renderer
+? backports.functools_lru_cache imported from wcwidth.wcwidth
+? bcrypt imported from cryptography.hazmat.primitives.serialization.ssh
+? black imported from IPython.terminal.interactiveshell
+? blobfile imported from tiktoken.load
+? brotli imported from urllib3.response, urllib3.util.request
+? brotlicffi imported from urllib3.response, urllib3.util.request
+? ck4inductor imported from torch._inductor.utils
+? ck4inductor.batched_universal_gemm.gen_instances imported from torch._inductor.codegen.rocm.ck_universal_gemm_template
+? ck4inductor.universal_gemm.gen_instances imported from torch._inductor.codegen.rocm.ck_universal_gemm_template, torch._inductor.utils
+? ck4inductor.universal_gemm.op imported from torch._inductor.utils
+? clr imported from IPython.utils._process_cli
+? com.sun imported from numba.misc.appdirs, torch._appdirs
+? com.sun.jna imported from numba.misc.appdirs, torch._appdirs
+? com.sun.jna.platform imported from numba.misc.appdirs, torch._appdirs
+? coverage imported from numba.misc.coverage_support, numba.tests.support
+? cryptography.x509.UnsupportedExtension imported from urllib3.contrib.pyopenssl
+? cubinlinker imported from numba.cuda.cudadrv.driver, numba.cuda.testing, numba.misc.numba_sysinfo
+? cuda imported from numba.core.config, numba.cuda.cudadrv.driver, numba.misc.numba_sysinfo
+? curio imported from IPython.core.async_helpers
+? curio.meta imported from sniffio._impl
+? cutlass_library imported from torch._inductor.codegen.cuda.cutlass_utils
+? cutlass_library.gemm_operation imported from torch._inductor.codegen.cuda.gemm_template
+? cutlass_library.generator imported from torch._inductor.codegen.cuda.cutlass_utils
+? cutlass_library.library imported from torch._inductor.codegen.cuda.cutlass_utils, torch._inductor.codegen.cuda.gemm_template
+? cutlass_library.manifest imported from torch._inductor.codegen.cuda.cutlass_utils
+? deeplearning.fbgemm.fbgemm_gpu.fb.inductor_lowerings imported from torch._inductor.fx_passes.group_batch_fusion
+? dill imported from torch.utils._import_utils, torch.utils.data.graph
+? distributed imported from fsspec.transaction
+? distutils._log imported from setuptools._distutils.command.bdist_dumb, setuptools._distutils.command.bdist_rpm, setuptools._distutils.command.build_clib, setuptools._distutils.command.build_ext, setuptools._distutils.command.build_py, setuptools._distutils.command.build_scripts, setuptools._distutils.command.clean, setuptools._distutils.command.config, setuptools._distutils.command.install, setuptools._distutils.command.install_scripts, setuptools._distutils.command.sdist
+? distutils._modified imported from setuptools._distutils.file_util
+? docrepr.sphinxify imported from IPython.core.interactiveshell
+? docutils.frontend imported from setuptools._distutils.command.check
+? docutils.nodes imported from setuptools._distutils.command.check
+? docutils.parsers.rst imported from setuptools._distutils.command.check
+? docutils.utils imported from setuptools._distutils.command.check
+? einops imported from torch._dynamo.decorators
+? einops._torch_specific imported from torch._dynamo.decorators
+? elftools.elf imported from numba.core.codegen
+? elftools.elf.elffile imported from numba.core.codegen
+? expecttest imported from torch.testing._internal.common_utils
+? fbscribelogger imported from torch._logging.scribe
+? flint imported from sympy.external.gmpy, sympy.polys.domains.finitefield, sympy.polys.domains.groundtypes, sympy.polys.factortools, sympy.polys.polyclasses, sympy.polys.polyutils
+? foo imported from torch._functorch.compilers
+? fqdn imported from jsonschema._format
+? future_builtins imported from future.builtins.misc
+? gdb imported from numba.misc.gdb_print_extension, numba.tests.test_gdb_dwarf
+? gdb.printing imported from numba.misc.gdb_print_extension
+? git imported from numba.testing.main, numba.tests.test_runtests
+? gmpy imported from mpmath.libmp.backend
+? gmpy2 imported from mpmath.libmp.backend, sympy.polys.domains.groundtypes, sympy.testing.runtests
+? google.protobuf imported from torch.utils.tensorboard.summary, torch.utils.tensorboard.writer
+? graphviz imported from ffmpeg._view, llvmlite.binding.analysis, llvmlite.tests.refprune_proto, numba.core.codegen, numba.core.controlflow, numba.core.ir, numba.misc.inspection
+? halide imported from torch._inductor.codecache
+? hypothesis imported from torch.testing._internal.common_utils, torch.testing._internal.hypothesis_utils
+? hypothesis.extra imported from torch.testing._internal.hypothesis_utils
+? hypothesis.strategies imported from torch.testing._internal.hypothesis_utils
+? importlib_resources imported from jsonschema_specifications._core
+? ipykernel imported from numba.tests.test_caching
+? ipykernel.embed imported from IPython
+? ipykernel.kernelapp imported from IPython
+? ipykernel.tests imported from numba.testing.notebook
+? ipywidgets imported from tqdm.notebook
+? isal imported from fsspec.compression
+? isoduration imported from jsonschema._format
+? jsonpointer imported from jsonschema._format
+? libfb.py imported from torch._inductor.codecache, torch._inductor.codegen.rocm.compile_command, torch._inductor.config
+? libfb.py.build_info imported from torch._dynamo.debug_utils
+? libfb.py.parutil imported from torch._inductor.compile_worker.subproc_pool
+? llvmlite.binding.Linkage imported from numba.pycc.compiler
+? llvmlite.binding.check_jit_execution imported from numba
+? llvmlite.binding.llvm_version_info imported from numba
+? llvmlite.binding.parse_assembly imported from llvmlite.ir.types
+? llvmlite.ir.ArrayType imported from llvmlite.tests.test_valuerepr
+? llvmlite.ir.CallInstr imported from llvmlite.ir.transforms
+? llvmlite.ir.Constant imported from llvmlite.ir.types, llvmlite.tests.test_valuerepr, numba.core.base, numba.core.callwrapper, numba.core.generators, numba.core.lowering, numba.core.pythonapi, numba.cpython.new_mathimpl, numba.cpython.new_numbers, numba.cpython.old_mathimpl, numba.cpython.old_numbers, numba.cpython.unicode, numba.np.arrayobj, numba.np.math.mathimpl, numba.np.math.numbers, numba.np.npdatetime, numba.np.ufunc.wrappers, numba.pycc.llvm_types
+? llvmlite.ir.DoubleType imported from llvmlite.tests.test_valuerepr
+? llvmlite.ir.FloatType imported from llvmlite.tests.test_valuerepr
+? llvmlite.ir.GlobalVariable imported from llvmlite.ir.types
+? llvmlite.ir.HalfType imported from llvmlite.tests.test_valuerepr
+? llvmlite.ir.IRBuilder imported from numba.core.callwrapper, numba.core.generators, numba.core.lowering, numba.np.ufunc.wrappers
+? llvmlite.ir.IntType imported from llvmlite.tests.test_valuerepr, numba.cpython.unicode
+? llvmlite.ir.LiteralStructType imported from llvmlite.tests.test_valuerepr
+? llvmlite.ir.Module imported from llvmlite.ir.types
+? llvmlite.ir.Value imported from llvmlite.ir.types
+? lz4.frame imported from fsspec.compression
+? lzmaffi imported from fsspec.compression
+? matplotlib imported from IPython.core.pylabtools, IPython.lib.latextools, matplotlib_inline.backend_inline, networkx.drawing.nx_pylab, sympy.testing.runtests, tqdm.gui
+? matplotlib._pylab_helpers imported from IPython.core.pylabtools, matplotlib_inline.backend_inline
+? matplotlib.backend_bases imported from IPython.core.pylabtools
+? matplotlib.backends imported from IPython.lib.latextools, matplotlib_inline.backend_inline
+? matplotlib.backends.backend_agg imported from matplotlib_inline.backend_inline, torch.utils.tensorboard._utils
+? matplotlib.cm imported from networkx.drawing.nx_pylab
+? matplotlib.collections imported from networkx.drawing.nx_pylab
+? matplotlib.colors imported from networkx.drawing.nx_pylab
+? matplotlib.figure imported from IPython.core.pylabtools, matplotlib_inline.backend_inline, torch.utils.tensorboard.writer
+? matplotlib.patches imported from networkx.drawing.nx_pylab
+? matplotlib.path imported from networkx.drawing.nx_pylab
+? matplotlib.pylab imported from numba.tests.doc_examples.test_examples
+? matplotlib.pyplot imported from IPython.core.pylabtools, networkx.drawing.nx_pylab, numba.cuda.tests.doc_examples.test_laplace, torch._functorch.partitioners, torch.profiler._memory_profiler, torch.utils.tensorboard._utils, tqdm.gui
+? monkeytype imported from torch.jit._monkeytype_config
+? monkeytype.config imported from torch.jit._monkeytype_config
+? monkeytype.db.base imported from torch.jit._monkeytype_config
+? monkeytype.tracing imported from torch.jit._monkeytype_config
+? more_itertools.always_iterable imported from setuptools._distutils.compilers.C.base, setuptools.config.expand, setuptools.config.pyprojecttoml
+? more_itertools.partition imported from setuptools.dist
+? more_itertools.unique_everseen imported from setuptools._path, setuptools.config.expand, setuptools.dist, setuptools.msvc
+? more_itertools.windowed imported from whisper.normalizers.english
+? more_itertools.windowed_complete imported from setuptools._vendor.inflect
+? moviepy imported from torch.utils.tensorboard.summary
+? mpl_toolkits.mplot3d imported from mpmath.visualization
+? nested.source_module imported from numba.tests.pycc_distutils_usecase.setup_distutils_nested, numba.tests.pycc_distutils_usecase.setup_setuptools_nested
+? networkx.NetworkXError imported from networkx.algorithms.bipartite.redundancy, networkx.algorithms.community.quality, networkx.algorithms.reciprocity, networkx.classes.multigraph
+? networkx.algorithms.approximation.local_node_connectivity imported from networkx.algorithms.approximation.kcomponents
+? networkx.algorithms.bipartite.complete_bipartite_graph imported from networkx.algorithms
+? networkx.algorithms.bipartite.is_bipartite imported from networkx.algorithms
+? networkx.algorithms.bipartite.project imported from networkx.algorithms
+? networkx.algorithms.bipartite.projected_graph imported from networkx.algorithms
+? networkx.algorithms.bipartite.sets imported from networkx.algorithms.bipartite.matching
+? networkx.algorithms.chordal_graph_cliques imported from networkx.algorithms.tree.decomposition
+? networkx.algorithms.community.modularity imported from networkx.algorithms.community.louvain
+? networkx.algorithms.complete_to_chordal_graph imported from networkx.algorithms.tree.decomposition
+? networkx.algorithms.components.connected_components imported from networkx.algorithms.bipartite.basic, networkx.algorithms.chordal
+? networkx.algorithms.components.is_connected imported from networkx.algorithms.community.asyn_fluid, networkx.algorithms.wiener
+? networkx.algorithms.components.is_strongly_connected imported from networkx.algorithms.wiener
+? networkx.algorithms.connectivity.all_node_cuts imported from networkx.algorithms
+? networkx.algorithms.connectivity.all_pairs_node_connectivity imported from networkx.algorithms
+? networkx.algorithms.connectivity.average_node_connectivity imported from networkx.algorithms
+? networkx.algorithms.connectivity.edge_connectivity imported from networkx.algorithms
+? networkx.algorithms.connectivity.edge_disjoint_paths imported from networkx.algorithms
+? networkx.algorithms.connectivity.is_k_edge_connected imported from networkx.algorithms
+? networkx.algorithms.connectivity.k_components imported from networkx.algorithms
+? networkx.algorithms.connectivity.k_edge_augmentation imported from networkx.algorithms
+? networkx.algorithms.connectivity.k_edge_components imported from networkx.algorithms
+? networkx.algorithms.connectivity.k_edge_subgraphs imported from networkx.algorithms
+? networkx.algorithms.connectivity.minimum_edge_cut imported from networkx.algorithms
+? networkx.algorithms.connectivity.minimum_node_cut imported from networkx.algorithms
+? networkx.algorithms.connectivity.node_connectivity imported from networkx.algorithms
+? networkx.algorithms.connectivity.node_disjoint_paths imported from networkx.algorithms
+? networkx.algorithms.connectivity.stoer_wagner imported from networkx.algorithms
+? networkx.algorithms.flow.boykov_kolmogorov imported from networkx.algorithms.connectivity.connectivity
+? networkx.algorithms.flow.capacity_scaling imported from networkx.algorithms
+? networkx.algorithms.flow.cost_of_flow imported from networkx.algorithms
+? networkx.algorithms.flow.dinitz imported from networkx.algorithms.connectivity.connectivity
+? networkx.algorithms.flow.edmonds_karp imported from networkx.algorithms.connectivity.connectivity, networkx.algorithms.connectivity.cuts, networkx.algorithms.connectivity.disjoint_paths, networkx.algorithms.connectivity.kcomponents, networkx.algorithms.connectivity.kcutsets
+? networkx.algorithms.flow.gomory_hu_tree imported from networkx.algorithms
+? networkx.algorithms.flow.max_flow_min_cost imported from networkx.algorithms
+? networkx.algorithms.flow.maximum_flow imported from networkx.algorithms
+? networkx.algorithms.flow.maximum_flow_value imported from networkx.algorithms
+? networkx.algorithms.flow.min_cost_flow imported from networkx.algorithms
+? networkx.algorithms.flow.min_cost_flow_cost imported from networkx.algorithms
+? networkx.algorithms.flow.minimum_cut imported from networkx.algorithms
+? networkx.algorithms.flow.minimum_cut_value imported from networkx.algorithms
+? networkx.algorithms.flow.network_simplex imported from networkx.algorithms
+? networkx.algorithms.flow.preflow_push imported from networkx.algorithms.connectivity.disjoint_paths
+? networkx.algorithms.flow.shortest_augmenting_path imported from networkx.algorithms.connectivity.connectivity, networkx.algorithms.connectivity.disjoint_paths, networkx.algorithms.connectivity.kcutsets       
+? networkx.algorithms.isomorphism.could_be_isomorphic imported from networkx.algorithms
+? networkx.algorithms.isomorphism.fast_could_be_isomorphic imported from networkx.algorithms
+? networkx.algorithms.isomorphism.faster_could_be_isomorphic imported from networkx.algorithms
+? networkx.algorithms.isomorphism.is_isomorphic imported from networkx.algorithms
+? networkx.algorithms.shortest_paths.shortest_path_length imported from networkx.algorithms.wiener
+? networkx.classes.set_node_attributes imported from networkx.generators.lattice
+? networkx.density imported from networkx.algorithms.minors.contraction
+? networkx.utils.BinaryHeap imported from networkx.algorithms.community.kernighan_lin, networkx.algorithms.connectivity.stoerwagner, networkx.algorithms.flow.capacityscaling
+? networkx.utils.UnionFind imported from networkx.algorithms.d_separation, networkx.algorithms.lowest_common_ancestors, networkx.algorithms.tree.mst
+? networkx.utils.arbitrary_element imported from networkx.algorithms.approximation.ramsey, networkx.algorithms.chordal, networkx.algorithms.coloring.greedy_coloring, networkx.algorithms.components.connected, networkx.algorithms.connectivity.edge_kcomponents, networkx.algorithms.connectivity.stoerwagner, networkx.algorithms.covering, networkx.algorithms.dag, networkx.algorithms.dominating, networkx.algorithms.euler, networkx.algorithms.flow.capacityscaling, networkx.algorithms.flow.preflowpush, networkx.algorithms.lowest_common_ancestors, networkx.algorithms.minors.contraction, networkx.algorithms.tournament, networkx.generators.line, networkx.utils.rcm
+? networkx.utils.create_py_random_state imported from networkx.utils.decorators
+? networkx.utils.create_random_state imported from networkx.utils.decorators
+? networkx.utils.cumulative_distribution imported from networkx.algorithms.smallworld
+? networkx.utils.dict_to_numpy_array imported from networkx.algorithms.assortativity.mixing
+? networkx.utils.discrete_sequence imported from networkx.algorithms.smallworld, networkx.generators.directed
+? networkx.utils.edges_equal imported from networkx.testing.utils
+? networkx.utils.flatten imported from networkx.generators.lattice
+? networkx.utils.graphs_equal imported from networkx.testing.utils
+? networkx.utils.groups imported from networkx.algorithms.community.asyn_fluid, networkx.algorithms.community.label_propagation, networkx.algorithms.voronoi, networkx.utils.union_find
+? networkx.utils.nodes_equal imported from networkx.testing.utils
+? networkx.utils.nodes_or_number imported from networkx.algorithms.bipartite.generators, networkx.generators.classic, networkx.generators.lattice
+? networkx.utils.not_implemented_for imported from networkx.algorithms.approximation.clique, networkx.algorithms.approximation.clustering_coefficient, networkx.algorithms.approximation.dominating_set, networkx.algorithms.approximation.kcomponents, networkx.algorithms.approximation.ramsey, networkx.algorithms.approximation.steinertree, networkx.algorithms.approximation.traveling_salesman, networkx.algorithms.approximation.treewidth, networkx.algorithms.asteroidal, networkx.algorithms.bipartite.covering, networkx.algorithms.bipartite.edgelist, networkx.algorithms.bipartite.projection, networkx.algorithms.bridges, networkx.algorithms.centrality.current_flow_betweenness, networkx.algorithms.centrality.current_flow_betweenness_subset, networkx.algorithms.centrality.current_flow_closeness, networkx.algorithms.centrality.eigenvector, networkx.algorithms.centrality.katz, networkx.algorithms.centrality.second_order, networkx.algorithms.centrality.subgraph_alg, networkx.algorithms.centrality.trophic, networkx.algorithms.chains, networkx.algorithms.chordal, networkx.algorithms.clique, networkx.algorithms.cluster, networkx.algorithms.communicability_alg, networkx.algorithms.community.asyn_fluid, networkx.algorithms.community.kernighan_lin, networkx.algorithms.community.label_propagation, networkx.algorithms.community.lukes, networkx.algorithms.community.modularity_max, networkx.algorithms.community.quality, networkx.algorithms.components.semiconnected, networkx.algorithms.connectivity.edge_augmentation, networkx.algorithms.connectivity.edge_kcomponents, networkx.algorithms.connectivity.kcomponents, networkx.algorithms.connectivity.stoerwagner, networkx.algorithms.core, networkx.algorithms.covering, networkx.algorithms.cycles, networkx.algorithms.d_separation, networkx.algorithms.dag, networkx.algorithms.distance_measures, networkx.algorithms.distance_regular, networkx.algorithms.dominance, networkx.algorithms.efficiency_measures, networkx.algorithms.euler, networkx.algorithms.flow.capacityscaling, networkx.algorithms.flow.gomory_hu, networkx.algorithms.flow.networksimplex, networkx.algorithms.link_prediction, networkx.algorithms.lowest_common_ancestors, networkx.algorithms.matching, networkx.algorithms.mis, networkx.algorithms.moral, networkx.algorithms.non_randomness, networkx.algorithms.operators.product, networkx.algorithms.polynomials, networkx.algorithms.reciprocity, networkx.algorithms.regular, networkx.algorithms.richclub, networkx.algorithms.simple_paths, networkx.algorithms.smallworld, networkx.algorithms.sparsifiers, networkx.algorithms.tournament, networkx.algorithms.tree.coding, networkx.algorithms.tree.decomposition, networkx.algorithms.tree.mst, networkx.algorithms.triads, networkx.classes.function, networkx.classes.graphviews, networkx.convert_matrix, networkx.generators.mycielski, networkx.generators.stochastic, networkx.linalg.algebraicconnectivity, networkx.linalg.bethehessianmatrix, networkx.linalg.laplacianmatrix, networkx.linalg.modularitymatrix, networkx.readwrite.graph6, networkx.readwrite.sparse6
+? networkx.utils.np_random_state imported from networkx.drawing.layout, networkx.generators.spectral_graph_forge, networkx.linalg.algebraicconnectivity
+? networkx.utils.open_file imported from networkx.algorithms.bipartite.edgelist, networkx.drawing.nx_pydot, networkx.readwrite.adjlist, networkx.readwrite.edgelist, networkx.readwrite.gexf, networkx.readwrite.gml, networkx.readwrite.gpickle, networkx.readwrite.graph6, networkx.readwrite.graphml, networkx.readwrite.leda, networkx.readwrite.multiline_adjlist, networkx.readwrite.pajek, networkx.readwrite.sparse6        
+? networkx.utils.pairwise imported from networkx.algorithms.approximation.steinertree, networkx.algorithms.approximation.traveling_salesman, networkx.algorithms.centrality.reaching, networkx.algorithms.components.semiconnected, networkx.algorithms.cycles, networkx.algorithms.dag, networkx.algorithms.flow.dinitz_alg, networkx.algorithms.simple_paths, networkx.classes.function, networkx.generators.classic, networkx.generators.lattice
+? networkx.utils.py_random_state imported from networkx.algorithms.approximation.clustering_coefficient, networkx.algorithms.approximation.traveling_salesman, networkx.algorithms.bipartite.generators, networkx.algorithms.centrality.betweenness, networkx.algorithms.centrality.current_flow_betweenness, networkx.algorithms.coloring.greedy_coloring, networkx.algorithms.community.asyn_fluid, networkx.algorithms.community.kernighan_lin, networkx.algorithms.community.label_propagation, networkx.algorithms.community.louvain, networkx.algorithms.connectivity.edge_augmentation, networkx.algorithms.mis, networkx.algorithms.smallworld, networkx.algorithms.sparsifiers, networkx.algorithms.swap, networkx.algorithms.tournament, networkx.algorithms.tree.branchings, networkx.algorithms.tree.mst, networkx.generators.cographs, networkx.generators.community, networkx.generators.degree_seq, networkx.generators.directed, networkx.generators.duplication, networkx.generators.geometric, networkx.generators.internet_as_graphs, networkx.generators.intersection, networkx.generators.joint_degree_seq, networkx.generators.random_clustered, networkx.generators.random_graphs, networkx.generators.trees, networkx.utils.random_sequence
+? networkx.utils.random_weighted_sample imported from networkx.generators.degree_seq
+? networkx.utils.reverse_cuthill_mckee_ordering imported from networkx.algorithms.centrality.current_flow_betweenness, networkx.algorithms.centrality.current_flow_betweenness_subset, networkx.algorithms.centrality.current_flow_closeness, networkx.linalg.algebraicconnectivity
+? networkx.utils.weighted_choice imported from networkx.generators.directed
+? numba.TypingError imported from numba.tests.test_slices
+? numba.bool_ imported from numba.tests.test_vectorization_type_inference
+? numba.boolean imported from numba.cuda.tests.cudapy.test_dispatcher, numba.tests.test_jitclasses
+? numba.cloudpickle.dumps imported from numba.tests.test_serialize
+? numba.cloudpickle.loads imported from numba.tests.test_serialize
+? numba.complex128 imported from numba.cuda.tests.cudapy.test_localmem
+? numba.complex64 imported from numba.cuda.tests.cudapy.test_constmem
+? numba.core.function imported from numba.tests.test_function_type
+? numba.core.types.Array imported from numba.core.types.abstract
+? numba.core.types.BaseTuple imported from numba.core.types.npytypes
+? numba.core.types.CPointer imported from numba.core.types.npytypes
+? numba.core.types.ClassInstanceType imported from numba.experimental.jitclass.overloads
+? numba.core.types.DictItemsIterableType imported from numba.typed.dictobject
+? numba.core.types.DictIteratorType imported from numba.typed.dictobject
+? numba.core.types.DictKeysIterableType imported from numba.typed.dictobject
+? numba.core.types.DictType imported from numba.typed.dictobject, numba.typed.typeddict
+? numba.core.types.DictValuesIterableType imported from numba.typed.dictobject
+? numba.core.types.FunctionPrototype imported from numba.experimental.function_type
+? numba.core.types.FunctionType imported from numba.experimental.function_type
+? numba.core.types.ListType imported from numba.typed.listobject, numba.typed.typedlist
+? numba.core.types.ListTypeIterableType imported from numba.typed.listobject
+? numba.core.types.ListTypeIteratorType imported from numba.typed.listobject
+? numba.core.types.NoneType imported from numba.typed.listobject
+? numba.core.types.StringLiteral imported from numba.np.arrayobj
+? numba.core.types.Tuple imported from numba.core.types.iterators, numba.core.types.npytypes
+? numba.core.types.Type imported from numba.typed.dictobject, numba.typed.listobject
+? numba.core.types.UndefinedFunctionType imported from numba.experimental.function_type
+? numba.core.types.UniTuple imported from numba.core.types.npytypes
+? numba.core.types.WrapperAddressProtocol imported from numba.experimental.function_type
+? numba.cuda.is_available imported from numba.cuda.testing
+? numba.cuda.require_context imported from numba.cuda.tests.cudadrv.test_linker
+? numba.deferred_type imported from numba.tests.test_jitclasses
+? numba.double imported from numba.cuda.tests.cudapy.test_blackscholes, numba.tests.test_looplifting, numba.tests.test_vectorization_type_inference
+? numba.float32 imported from numba.cuda.random, numba.cuda.tests.cudadrv.test_linker, numba.cuda.tests.cudapy.test_atomics, numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_device_func, numba.cuda.tests.cudapy.test_dispatcher, numba.cuda.tests.cudapy.test_fastmath, numba.cuda.tests.cudapy.test_freevar, numba.cuda.tests.cudapy.test_globals, numba.cuda.tests.cudapy.test_gufunc, numba.cuda.tests.cudapy.test_idiv, numba.cuda.tests.cudapy.test_inspect, numba.cuda.tests.cudapy.test_lineinfo, numba.cuda.tests.cudapy.test_math, numba.cuda.tests.cudapy.test_matmul, numba.cuda.tests.cudapy.test_nondet, numba.cuda.tests.cudapy.test_py2_div_issue, numba.cuda.tests.cudapy.test_sm_creation, numba.cuda.tests.cudapy.test_sync, numba.cuda.tests.cudapy.test_vectorize, numba.cuda.tests.cudapy.test_vectorize_device, numba.cuda.tests.cudapy.test_warp_ops, numba.cuda.tests.doc_examples.test_matmul, numba.np.random.old_distributions, numba.tests.compile_with_pycc, numba.tests.doc_examples.test_examples, numba.tests.doc_examples.test_jitclass, numba.tests.npyufunc.test_gufunc, numba.tests.npyufunc.test_parallel_low_work, numba.tests.npyufunc.test_ufunc, numba.tests.npyufunc.test_vectorize_decor, numba.tests.test_dictobject, numba.tests.test_function_type, numba.tests.test_itanium_mangler, numba.tests.test_jitclasses, numba.tests.test_locals, numba.tests.test_typedlist, numba.tests.test_vectorization_type_inference
+? numba.float64 imported from numba.cuda.random, numba.cuda.tests.cudadrv.test_linker, numba.cuda.tests.cudapy.test_atomics, numba.cuda.tests.cudapy.test_constmem, numba.cuda.tests.cudapy.test_debug, numba.cuda.tests.cudapy.test_dispatcher, numba.cuda.tests.cudapy.test_gufunc, numba.cuda.tests.cudapy.test_idiv, numba.cuda.tests.cudapy.test_inspect, numba.cuda.tests.cudapy.test_lang, numba.cuda.tests.cudapy.test_laplace, numba.cuda.tests.cudapy.test_mandel, numba.cuda.tests.cudapy.test_math, numba.cuda.tests.cudapy.test_minmax, numba.cuda.tests.cudapy.test_optimization, numba.cuda.tests.cudapy.test_powi, numba.cuda.tests.cudapy.test_sm, numba.cuda.tests.cudapy.test_vectorize, numba.cuda.tests.cudapy.test_vectorize_scalar_arg, numba.cuda.tests.cudapy.test_warp_ops, numba.tests.doc_examples.test_examples, numba.tests.npyufunc.test_gufunc, numba.tests.npyufunc.test_parallel_low_work, numba.tests.npyufunc.test_vectorize_decor, numba.tests.test_dictobject, numba.tests.test_function_type, numba.tests.test_itanium_mangler, numba.tests.test_jitclasses
+? numba.int16 imported from numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_enums, numba.tests.test_enums, numba.tests.test_jitclasses
+? numba.int32 imported from numba.cuda.tests.cudadrv.test_linker, numba.cuda.tests.cudadrv.test_ptds, numba.cuda.tests.cudapy.extensions_usecases, numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_constmem, numba.cuda.tests.cudapy.test_cooperative_groups, numba.cuda.tests.cudapy.test_device_func, numba.cuda.tests.cudapy.test_dispatcher, numba.cuda.tests.cudapy.test_enums, numba.cuda.tests.cudapy.test_globals, numba.cuda.tests.cudapy.test_gufunc, numba.cuda.tests.cudapy.test_idiv, numba.cuda.tests.cudapy.test_inspect, numba.cuda.tests.cudapy.test_lineinfo, numba.cuda.tests.cudapy.test_localmem, numba.cuda.tests.cudapy.test_math, numba.cuda.tests.cudapy.test_powi, numba.cuda.tests.cudapy.test_py2_div_issue, numba.cuda.tests.cudapy.test_sm, numba.cuda.tests.cudapy.test_sm_creation, numba.cuda.tests.cudapy.test_sync, numba.cuda.tests.cudapy.test_vectorize, numba.cuda.tests.cudapy.test_warp_ops, numba.cuda.tests.doc_examples.test_cg, numba.tests.doc_examples.test_examples, numba.tests.doc_examples.test_jitclass, numba.tests.npyufunc.test_gufunc, numba.tests.npyufunc.test_parallel_low_work, numba.tests.npyufunc.test_vectorize_decor, numba.tests.test_dictobject, numba.tests.test_enums, numba.tests.test_interproc, numba.tests.test_itanium_mangler, numba.tests.test_jitclasses, numba.tests.test_listobject, numba.tests.test_looplifting, numba.tests.test_nested_calls, numba.tests.test_typedlist, numba.tests.typedlist_usecases
+? numba.int64 imported from numba.cuda.random, numba.cuda.tests.cudadrv.test_linker, numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_dispatcher, numba.cuda.tests.cudapy.test_intrinsics, numba.cuda.tests.cudapy.test_math, numba.cuda.tests.cudapy.test_warp_ops, numba.np.random.old_distributions, numba.tests.doc_examples.test_examples, numba.tests.doctest_usecase, numba.tests.errorhandling_usecases, numba.tests.npyufunc.test_gufunc, numba.tests.test_dictobject, numba.tests.test_function_type, numba.tests.test_itanium_mangler, numba.tests.test_nested_calls
+? numba.int8 imported from numba.cuda.tests.cudapy.test_powi, numba.tests.test_enums, numba.tests.test_vectorization_type_inference
+? numba.int_ imported from numba.tests.test_vectorization_type_inference
+? numba.intp imported from numba.cuda.tests.cudapy.test_inspect
+? numba.optional imported from numba.tests.test_jitclasses
+? numba.typed.Dict imported from numba.core.typing.typeof, numba.tests.doc_examples.test_typed_dict_usage, numba.tests.test_conditions_as_predicates, numba.tests.test_dictobject, numba.tests.test_np_functions, numba.tests.test_parfors, numba.tests.test_repr, numba.tests.test_typedlist, numba.tests.test_unicode_array, numba.typed.dictimpl, numba.typed.dictobject
+? numba.typed.List imported from numba.core.codegen, numba.core.typing.typeof, numba.tests.doc_examples.test_jitclass, numba.tests.doc_examples.test_typed_list_usage, numba.tests.test_conditions_as_predicates, numba.tests.test_dictobject, numba.tests.test_listobject, numba.tests.test_np_functions, numba.tests.test_parfors, numba.tests.test_repr, numba.tests.test_typedlist, numba.tests.typedlist_usecases, numba.typed.listobject
+? numba.types.ListType imported from numba.tests.test_parfors
+? numba.types.Tuple imported from numba.cuda.libdevicefuncs, numba.tests.test_parfors
+? numba.types.containers imported from numba.tests.test_moved_modules
+? numba.types.float16 imported from numba.cuda.tests.cudapy.test_casting
+? numba.types.float32 imported from numba.cuda.libdevicefuncs, numba.cuda.mathimpl, numba.cuda.tests.cudapy.test_casting, numba.cuda.tests.cudapy.test_frexp_ldexp
+? numba.types.float64 imported from numba.cuda.libdevicefuncs, numba.cuda.mathimpl, numba.cuda.tests.cudapy.test_frexp_ldexp
+? numba.types.i8 imported from numba.tests.compile_with_pycc
+? numba.types.int16 imported from numba.cuda.libdevicefuncs
+? numba.types.int32 imported from numba.cuda.libdevicefuncs, numba.cuda.tests.cudapy.test_frexp_ldexp, numba.cuda.tests.doc_examples.test_reduction
+? numba.types.int64 imported from numba.cuda.libdevicefuncs, numba.cuda.mathimpl
+? numba.types.intp imported from numba.tests.test_parfors
+? numba.types.misc imported from numba.tests.test_moved_modules
+? numba.types.uint64 imported from numba.cuda.mathimpl
+? numba.types.unicode_type imported from numba.tests.compile_with_pycc
+? numba.types.void imported from numba.cuda.libdevicefuncs, numba.cuda.tests.cudapy.test_frexp_ldexp
+? numba.uint16 imported from numba.np.random.old_random_methods
+? numba.uint32 imported from numba.cuda.random, numba.cuda.tests.cudapy.test_atomics, numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_mandel, numba.np.random.old_random_methods, numba.tests.npyufunc.test_parallel_low_work, numba.tests.npyufunc.test_vectorize_decor, numba.tests.test_itanium_mangler
+? numba.uint64 imported from numba.cuda.random, numba.cuda.tests.cudapy.test_atomics, numba.np.random.old_random_methods, numba.tests.test_itanium_mangler
+? numba.uint8 imported from numba.np.random.old_random_methods, numba.tests.test_typedlist
+? numba.void imported from numba.cuda.tests.cudadrv.test_linker, numba.cuda.tests.cudadrv.test_ptds, numba.cuda.tests.cudapy.test_blackscholes, numba.cuda.tests.cudapy.test_compiler, numba.cuda.tests.cudapy.test_dispatcher, numba.cuda.tests.cudapy.test_gufunc, numba.cuda.tests.cudapy.test_idiv, numba.cuda.tests.cudapy.test_laplace, numba.cuda.tests.cudapy.test_localmem, numba.cuda.tests.cudapy.test_math, numba.cuda.tests.cudapy.test_matmul, numba.cuda.tests.cudapy.test_nondet, numba.cuda.tests.cudapy.test_powi, numba.cuda.tests.cudapy.test_py2_div_issue, numba.cuda.tests.cudapy.test_sm, numba.cuda.tests.cudapy.test_sm_creation, numba.tests.npyufunc.test_gufunc, numba.tests.test_alignment, numba.tests.test_looplifting
+? numpy._core._get_promotion_state imported from numpy
+? numpy._core._no_nep50_warning imported from numpy
+? numpy._core._set_promotion_state imported from numpy
+? numpy.distutils imported from numpy
+? numpy.linalg.eigvals imported from numpy.lib._polynomial_impl
+? numpy.linalg.inv imported from numpy.lib._polynomial_impl, numpy.matrixlib.defmatrix
+? numpy.linalg.lstsq imported from numpy.lib._polynomial_impl
+? numpy.linalg.matrix_power imported from numpy.matrixlib.defmatrix
+? numpy.linalg.pinv imported from numpy.matrixlib.defmatrix
+? numpy.ma.MAError imported from numpy.ma.mrecords
+? numpy.ma.MaskedArray imported from numpy.lib._npyio_impl, numpy.lib.recfunctions, numpy.ma.mrecords
+? numpy.ma.filled imported from numpy.ma.mrecords
+? numpy.ma.getdata imported from numpy.ma.mrecords
+? numpy.ma.getmaskarray imported from numpy.ma.mrecords
+? numpy.ma.make_mask_descr imported from numpy.lib._npyio_impl
+? numpy.ma.masked imported from numpy.ma.mrecords
+? numpy.ma.masked_array imported from numpy.ma.mrecords
+? numpy.ma.nomask imported from numpy.ma.mrecords
+? numpy.random.randn imported from numba.tests.test_parfors
+? numpy.strings.multiply imported from numpy._core.defchararray
+? numpy.strings.partition imported from numpy._core.defchararray
+? numpy.strings.rpartition imported from numpy._core.defchararray
+? numpy.testing.IS_PYPY imported from numpy._pytesttester
+? numpy.testing.assert_array_equal imported from numba.tests.npyufunc.test_ufuncbuilding
+? numpydoc.docscrape imported from jedi.inference.docstrings
+? objgraph imported from torch.testing._internal.common_utils
+? onnx imported from torch.onnx._internal._exporter_legacy, torch.onnx._internal._lazy_import, torch.onnx._internal.exporter._building, torch.onnx._internal.exporter._schemas, torch.onnx._internal.fx.onnxfunction_dispatcher, torch.onnx._internal.fx.serialization, torch.onnx._internal.fx.type_utils, torch.onnx._internal.onnx_proto_utils, torch.onnx._internal.onnxruntime, torch.utils.tensorboard._onnx_graph
+? onnx.defs imported from torch.onnx._internal.fx.type_utils
+? onnx.defs.OpSchema.AttrType imported from torch.onnx._internal.fx.type_utils
+? onnxruntime imported from torch.onnx._internal._exporter_legacy, torch.onnx._internal.exporter._onnx_program, torch.onnx._internal.onnxruntime
+? onnxruntime.capi imported from torch.onnx._internal.onnxruntime
+? onnxscript imported from torch.onnx._internal._exporter_legacy, torch.onnx._internal._lazy_import, torch.onnx._internal.exporter._building, torch.onnx._internal.exporter._core, torch.onnx._internal.exporter._dispatching, torch.onnx._internal.exporter._reporting, torch.onnx._internal.exporter._schemas, torch.onnx._internal.exporter._tensors, torch.onnx._internal.fx.diagnostics, torch.onnx._internal.fx.fx_onnx_interpreter, torch.onnx._internal.fx.onnxfunction_dispatcher, torch.onnx._internal.fx.registration, torch.onnx._internal.onnxruntime
+? onnxscript._framework_apis.torch_2_6 imported from torch.onnx._internal._lazy_import
+? onnxscript.evaluator imported from torch.onnx._internal.exporter._core
+? onnxscript.function_libs.torch_lib imported from torch.onnx._internal.fx.diagnostics, torch.onnx._internal.fx.fx_onnx_interpreter, torch.onnx._internal.fx.onnxfunction_dispatcher
+? onnxscript.function_libs.torch_lib.ops imported from torch.onnx._internal.exporter._ir_passes, torch.onnx._internal.fx.decomposition_skip
+? onnxscript.ir imported from torch.onnx._internal.exporter._building, torch.onnx._internal.exporter._core, torch.onnx._internal.exporter._torchlib.ops.hop
+? onnxscript.rewriter imported from torch.onnx._internal.onnxruntime
+? opt_einsum imported from torch.backends.opt_einsum
+? optree imported from torch._dynamo.polyfills.pytree, torch.utils._cxx_pytree
+? optree._C imported from torch._dynamo.polyfills.pytree
+? osgeo imported from networkx.readwrite.nx_shp
+? pandas imported from networkx.algorithms.centrality.group, networkx.convert, networkx.convert_matrix, torch.utils.data.datapipes.dataframe.dataframe_wrapper, tqdm.std
+? pandas.core.common imported from tqdm.std
+? pandas.core.frame imported from tqdm.std
+? pandas.core.groupby imported from tqdm.std
+? pandas.core.groupby.generic imported from tqdm.std
+? pandas.core.groupby.groupby imported from tqdm.std
+? pandas.core.series imported from tqdm.std
+? pandas.core.window imported from tqdm.std
+? pandas.core.window.expanding imported from tqdm.std
+? pandas.core.window.rolling imported from tqdm.std
+? pathlib2 imported from pickleshare
+? pexpect imported from IPython.utils._process_posix, numba.tests.gdb_support
+? prompt_toolkit.filters.HasFocus imported from IPython.terminal.interactiveshell
+? prompt_toolkit.filters.IsDone imported from IPython.terminal.interactiveshell
+? prompt_toolkit.filters.buffer_has_focus imported from prompt_toolkit.key_binding.bindings.page_navigation, prompt_toolkit.key_binding.defaults
+? prompt_toolkit.filters.control_is_searchable imported from prompt_toolkit.key_binding.bindings.search
+? prompt_toolkit.filters.emacs_insert_mode imported from IPython.terminal.shortcuts.filters, prompt_toolkit.key_binding.bindings.basic, prompt_toolkit.key_binding.bindings.emacs, prompt_toolkit.layout.containers
+? prompt_toolkit.filters.emacs_mode imported from prompt_toolkit.key_binding.bindings.auto_suggest, prompt_toolkit.key_binding.bindings.emacs, prompt_toolkit.key_binding.bindings.open_in_editor, prompt_toolkit.key_binding.bindings.page_navigation, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.has_arg imported from prompt_toolkit.key_binding.bindings.emacs, prompt_toolkit.key_binding.bindings.vi, prompt_toolkit.shortcuts.prompt, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.has_completions imported from IPython.terminal.shortcuts.filters, prompt_toolkit.layout.menus, prompt_toolkit.widgets.dialogs, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.has_focus imported from IPython.terminal.shortcuts.filters, prompt_toolkit.shortcuts.prompt, prompt_toolkit.widgets.base, prompt_toolkit.widgets.dialogs, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.has_selection imported from IPython.terminal.shortcuts.filters, prompt_toolkit.key_binding.bindings.basic, prompt_toolkit.key_binding.bindings.emacs, prompt_toolkit.key_binding.bindings.open_in_editor
+? prompt_toolkit.filters.has_suggestion imported from IPython.terminal.shortcuts.filters
+? prompt_toolkit.filters.has_validation_error imported from prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.in_paste_mode imported from prompt_toolkit.key_binding.bindings.basic, prompt_toolkit.key_binding.bindings.emacs
+? prompt_toolkit.filters.is_done imported from prompt_toolkit.layout.menus, prompt_toolkit.shortcuts.progress_bar.base, prompt_toolkit.shortcuts.prompt, prompt_toolkit.widgets.base
+? prompt_toolkit.filters.is_multiline imported from prompt_toolkit.key_binding.bindings.basic, prompt_toolkit.key_binding.bindings.emacs
+? prompt_toolkit.filters.is_read_only imported from prompt_toolkit.key_binding.bindings.emacs, prompt_toolkit.key_binding.bindings.vi
+? prompt_toolkit.filters.is_searching imported from prompt_toolkit.key_binding.bindings.search, prompt_toolkit.key_binding.bindings.vi, prompt_toolkit.search
+? prompt_toolkit.filters.renderer_height_is_known imported from prompt_toolkit.shortcuts.progress_bar.base, prompt_toolkit.shortcuts.prompt
+? prompt_toolkit.filters.shift_selection_mode imported from prompt_toolkit.key_binding.bindings.emacs
+? prompt_toolkit.filters.vi_insert_mode imported from IPython.terminal.shortcuts.filters, prompt_toolkit.key_binding.bindings.basic, prompt_toolkit.layout.containers
+? prompt_toolkit.filters.vi_insert_multiple_mode imported from prompt_toolkit.layout.processors
+? prompt_toolkit.filters.vi_mode imported from IPython.terminal.shortcuts.filters, prompt_toolkit.document, prompt_toolkit.key_binding.bindings.page_navigation, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.vi_navigation_mode imported from prompt_toolkit.key_binding.bindings.open_in_editor, prompt_toolkit.widgets.toolbars
+? prompt_toolkit.filters.vi_search_direction_reversed imported from prompt_toolkit.key_binding.bindings.emacs
+? prompt_toolkit.key_binding.key_bindings.vi imported from prompt_toolkit.key_binding.vi_state
+? psutil imported from numba.misc.numba_sysinfo, torch.testing._internal.common_device_type
+? ptxcompiler imported from numba.cuda.cudadrv.driver, numba.cuda.testing, numba.misc.numba_sysinfo
+? py imported from mpmath.tests.runtests
+? pycosat imported from sympy.logic.algorithms.pycosat_wrapper
+? pydot imported from networkx.drawing.nx_pydot, torch._functorch.partitioners, torch.fx.passes.graph_drawer
+? pyglet imported from sympy.plotting.pygletplot.plot_axes, sympy.printing.preview, sympy.testing.runtests
+? pyglet.clock imported from sympy.plotting.pygletplot.managed_window
+? pyglet.gl imported from sympy.plotting.pygletplot.plot, sympy.plotting.pygletplot.plot_axes, sympy.plotting.pygletplot.plot_camera, sympy.plotting.pygletplot.plot_curve, sympy.plotting.pygletplot.plot_mode_base, sympy.plotting.pygletplot.plot_rotation, sympy.plotting.pygletplot.plot_surface, sympy.plotting.pygletplot.plot_window, sympy.plotting.pygletplot.util
+? pyglet.image.codecs imported from sympy.printing.preview
+? pyglet.window imported from sympy.plotting.pygletplot.managed_window, sympy.plotting.pygletplot.plot_controller, sympy.printing.preview
+? pyglet.window.mouse imported from sympy.plotting.pygletplot.plot_controller
+? pygments.formatters.HtmlFormatter imported from IPython.core.oinspect, IPython.lib.display, numba.core.annotations.pretty_annotate, stack_data.core
+? pygments.formatters.LatexFormatter imported from IPython.lib.display
+? pygments.formatters.Terminal256Formatter imported from numba.core.codegen, numba.core.ir, numba.core.utils
+? pygments.formatters.TerminalFormatter imported from numba.core.annotations.pretty_annotate
+? pygments.lexers.GasLexer imported from numba.core.codegen
+? pygments.lexers.LlvmLexer imported from numba.core.codegen, numba.core.utils
+? pygments.lexers.PrologLexer imported from pygments.lexers.cplint
+? pygments.lexers.PythonLexer imported from IPython.core.oinspect, numba.core.annotations.pretty_annotate
+? pygraphviz imported from networkx.drawing.nx_agraph
+? pyinstrument imported from torch.onnx._internal.exporter._core
+? pylab imported from mpmath.visualization
+? pynvml imported from torch.cuda, torch.cuda.memory
+? pyparsing.ParseFatalException imported from IPython.lib.latextools
+? pyparsing.Word imported from pyparsing.unicode
+? pysat.solvers imported from sympy.logic.algorithms.minisat22_wrapper
+? pytest imported from networkx.testing.test, setuptools._vendor.typeguard._pytest_plugin, sympy.testing.runtests_pytest, torch.testing._internal.common_utils, torch.testing._internal.optests.generate_tests    
+? pytest_subtests imported from torch.testing._internal.opinfo.core
+? r2pipe imported from numba.misc.inspection
+? railroad imported from pyparsing.diagram
+? redis imported from torch._inductor.remote_cache
+? regex.DEFAULT_VERSION imported from regex.regex
+? resource imported from IPython.utils.timing, fsspec.asyn, torch._inductor.codecache
+? rfc3339_validator imported from jsonschema._format
+? rfc3986_validator imported from jsonschema._format
+? rfc3987 imported from jsonschema._format
+? rfe.scubadata.scubadata_py3 imported from torch._inductor.remote_cache
+? rpds.HashTrieMap imported from jsonschema._types, jsonschema.validators, referencing._core
+? rpds.HashTrieSet imported from referencing._core
+? rpds.List imported from referencing._core
+? safetensors imported from torch.onnx._internal.fx.patcher, torch.onnx._internal.fx.serialization
+? sage.all imported from mpmath.libmp.backend, sympy.core.function
+? sage.interfaces.sympy imported from sympy.core.basic
+? sage.libs.mpmath.ext_libmp imported from mpmath.libmp.libelefun, mpmath.libmp.libmpc, mpmath.libmp.libmpf
+? sage.libs.mpmath.ext_main imported from mpmath.ctx_mp, mpmath.libmp.libhyper
+? sage.libs.mpmath.utils imported from mpmath.libmp.backend
+? scipy imported from networkx.algorithms.assortativity.correlation, networkx.algorithms.bipartite.matching, networkx.algorithms.bipartite.matrix, networkx.algorithms.bipartite.spectral, networkx.algorithms.centrality.eigenvector, networkx.algorithms.centrality.flow_matrix, networkx.algorithms.centrality.subgraph_alg, networkx.algorithms.communicability_alg, networkx.algorithms.distance_measures, networkx.algorithms.link_analysis.hits_alg, networkx.algorithms.link_analysis.pagerank_alg, networkx.algorithms.node_classification.hmn, networkx.algorithms.node_classification.lgc, networkx.algorithms.similarity, networkx.convert, networkx.convert_matrix, networkx.drawing.layout, networkx.generators.geometric, networkx.generators.random_graphs, networkx.generators.spectral_graph_forge, networkx.linalg.algebraicconnectivity, networkx.linalg.attrmatrix, networkx.linalg.bethehessianmatrix, networkx.linalg.graphmatrix, networkx.linalg.laplacianmatrix, networkx.linalg.spectrum, numba, numba.tests.support, numba.tests.test_withlifting, torch.testing._internal.common_methods_invocations
+? scipy.fft imported from torch.testing._internal.opinfo.definitions.fft
+? scipy.io imported from torch.utils.data.datapipes.utils.decoder
+? scipy.linalg imported from networkx.algorithms.bipartite.spectral, networkx.algorithms.centrality.subgraph_alg, networkx.algorithms.communicability_alg, networkx.linalg.algebraicconnectivity, networkx.linalg.spectrum
+? scipy.linalg.blas imported from networkx.linalg.algebraicconnectivity
+? scipy.linalg.cython_blas imported from numba.np.linalg, numba.tests.support
+? scipy.linalg.cython_lapack imported from numba.np.linalg, numba.tests.support, numba.tests.test_parallel_backend
+? scipy.optimize imported from networkx.algorithms.approximation.traveling_salesman, networkx.algorithms.bipartite.matching, networkx.algorithms.similarity, networkx.drawing.layout, networkx.generators.random_graphs, sympy.functions.special.bessel, torch._functorch._activation_checkpointing.knapsack
+? scipy.signal imported from torch.testing._internal.opinfo.definitions.signal
+? scipy.sparse imported from networkx.algorithms.bipartite.matrix, networkx.algorithms.link_analysis.pagerank_alg, networkx.algorithms.node_classification.hmn, networkx.algorithms.node_classification.lgc, networkx.convert_matrix, networkx.drawing.layout, networkx.linalg.algebraicconnectivity, networkx.linalg.attrmatrix, networkx.linalg.bethehessianmatrix, networkx.linalg.graphmatrix, networkx.linalg.laplacianmatrix  
+? scipy.sparse.linalg imported from networkx.algorithms.centrality.eigenvector, networkx.algorithms.centrality.flow_matrix, networkx.algorithms.distance_measures, networkx.algorithms.link_analysis.hits_alg, networkx.drawing.layout, networkx.linalg.algebraicconnectivity, networkx.linalg.laplacianmatrix
+? scipy.spatial imported from networkx.generators.geometric, torch.testing._internal.common_methods_invocations
+? scipy.special imported from networkx.generators.community, sympy.functions.special.bessel, torch.testing._internal.common_methods_invocations, torch.testing._internal.opinfo.definitions.special
+? scipy.special.cython_special imported from numba.tests.test_extending
+? scipy.stats imported from networkx.algorithms.assortativity.correlation, networkx.generators.spectral_graph_forge
+? setuptools_scm imported from tqdm.version
+? simplejson imported from requests.compat
+? sip imported from IPython.external.qt_loaders
+? snappy imported from fsspec.compression
+? source_module imported from numba.tests.pycc_distutils_usecase.setup_distutils, numba.tests.pycc_distutils_usecase.setup_setuptools
+? tabulate imported from torch._dynamo.backends.distributed, torch._dynamo.utils, torch._inductor.wrapper_benchmark, torch.ao.ns.fx.n_shadows_utils, torch.fx.graph, torch.utils.flop_counter
+? tensorboard imported from torch.utils.tensorboard
+? tensorboard.compat imported from torch.utils.tensorboard._embedding, torch.utils.tensorboard.writer
+? tensorboard.compat.proto imported from torch.utils.tensorboard.writer
+? tensorboard.compat.proto.attr_value_pb2 imported from torch.utils.tensorboard._onnx_graph, torch.utils.tensorboard._proto_graph
+? tensorboard.compat.proto.config_pb2 imported from torch.utils.tensorboard._pytorch_graph
+? tensorboard.compat.proto.event_pb2 imported from torch.utils.tensorboard.writer
+? tensorboard.compat.proto.graph_pb2 imported from torch.utils.tensorboard._onnx_graph, torch.utils.tensorboard._pytorch_graph
+? tensorboard.compat.proto.node_def_pb2 imported from torch.utils.tensorboard._onnx_graph, torch.utils.tensorboard._proto_graph
+? tensorboard.compat.proto.step_stats_pb2 imported from torch.utils.tensorboard._pytorch_graph
+? tensorboard.compat.proto.summary_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.compat.proto.tensor_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.compat.proto.tensor_shape_pb2 imported from torch.utils.tensorboard._onnx_graph, torch.utils.tensorboard._proto_graph, torch.utils.tensorboard.summary
+? tensorboard.compat.proto.versions_pb2 imported from torch.utils.tensorboard._onnx_graph, torch.utils.tensorboard._pytorch_graph
+? tensorboard.plugins.custom_scalar imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.hparams.api_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.hparams.metadata imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.hparams.plugin_data_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.mesh imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.mesh.plugin_data_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.pr_curve.plugin_data_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.plugins.projector.projector_config_pb2 imported from torch.utils.tensorboard._embedding, torch.utils.tensorboard.writer
+? tensorboard.plugins.text.plugin_data_pb2 imported from torch.utils.tensorboard.summary
+? tensorboard.summary.writer.event_file_writer imported from torch.utils.tensorboard.writer
+? tensorboard.summary.writer.record_writer imported from torch.utils.tensorboard
+? test.support.os_helper imported from future.moves.test.support
+? test.support.warnings_helper imported from future.moves.test.support
+? test.test_support imported from future.moves.test.support
+? test_module imported from numba.tests.test_caching
+? tkinter.BOTH imported from tkinter.filedialog
+? tkinter.BOTTOM imported from tkinter.filedialog
+? tkinter.END imported from tkinter.filedialog
+? tkinter.LEFT imported from tkinter.filedialog
+? tkinter.RIGHT imported from tkinter.filedialog
+? tkinter.TOP imported from tkinter.filedialog
+? tkinter.X imported from tkinter.filedialog
+? tkinter.Y imported from tkinter.filedialog
+? tkinter.YES imported from tkinter.filedialog
+? tmp_module imported from numba.tests.test_unpickle_without_module
+? torch._C._VariableFunctions imported from torch
+? torch._C._autograd imported from torch._subclasses.meta_utils, torch.autograd, torch.profiler, torch.profiler._memory_profiler, torch.testing._internal.common_distributed
+? torch._C._distributed_autograd imported from torch.distributed.autograd
+? torch._C._distributed_c10d imported from torch._dynamo.variables.distributed, torch._inductor.codegen.wrapper, torch.distributed, torch.distributed._shard.sharded_tensor.reshard, torch.distributed._shard.sharding_spec.chunk_sharding_spec_ops.embedding_bag, torch.distributed._symmetric_memory, torch.distributed.constants, torch.distributed.device_mesh, torch.distributed.distributed_c10d, torch.distributed.rpc, torch.distributed.tensor._collective_utils, torch.testing._internal.common_distributed, torch.testing._internal.distributed.fake_pg, torch.testing._internal.distributed.multi_threaded_pg
+? torch._C._distributed_rpc imported from torch._jit_internal, torch.distributed.rpc, torch.distributed.rpc.api, torch.distributed.rpc.constants, torch.distributed.rpc.internal, torch.distributed.rpc.options   
+? torch._C._distributed_rpc_testing imported from torch.distributed.rpc._testing
+? torch._C._dynamo.eval_frame imported from torch._dynamo.decorators, torch._dynamo.eval_frame, torch._dynamo.types
+? torch._C._dynamo.guards imported from torch._dynamo.convert_frame, torch._dynamo.guards, torch._functorch._aot_autograd.input_output_analysis
+? torch._C._functorch imported from torch._functorch.autograd_function, torch._functorch.eager_transforms, torch._functorch.pyfunctorch, torch._functorch.utils, torch._functorch.vmap, torch._higher_order_ops.cond, torch._subclasses.fake_tensor, torch._subclasses.meta_utils
+? torch._C._jit_tree_views imported from torch._sources, torch.jit.frontend
+? torch._C._lazy imported from torch._lazy, torch._lazy.device_context, torch._lazy.metrics
+? torch._C._lazy_ts_backend imported from torch._lazy.ts_backend
+? torch._C._monitor imported from torch.monitor
+? torch._C._onnx imported from torch.onnx, torch.onnx._globals, torch.onnx.symbolic_helper, torch.onnx.symbolic_opset10, torch.onnx.symbolic_opset13, torch.onnx.symbolic_opset9, torch.onnx.utils
+? torch._C._profiler imported from torch.autograd, torch.autograd.profiler, torch.cuda._memory_viz, torch.profiler, torch.profiler._memory_profiler, torch.profiler.profiler, torch.testing._internal.logging_tensor, torch.utils._traceback
+? torch._dynamo.variables.symbolic_convert imported from torch._dynamo.variables.base
+? torch._inductor.fb.remote_cache imported from torch._dynamo.pgo, torch._dynamo.utils, torch._functorch._aot_autograd.autograd_cache, torch._inductor.remote_cache, torch._inductor.runtime.autotune_cache, torch._inductor.utils
+? torch._inductor.fb.utils imported from torch._inductor.codecache, torch._inductor.compile_fx, torch._inductor.cpp_builder, torch._inductor.graph
+? torch._inductor.fx_passes.fb imported from torch._inductor.fx_passes.pre_grad
+? torch.ao.nn.intrinsic.BNReLU2d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.BNReLU3d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBn1d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBn2d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBn3d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBnReLU1d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBnReLU2d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvBnReLU3d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvReLU1d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvReLU2d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.ConvReLU3d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.LinearBn1d imported from torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.LinearReLU imported from torch.ao.nn.qat.modules.linear, torch.nn.intrinsic, torch.nn.intrinsic.modules.fused
+? torch.ao.nn.intrinsic.qat.ConvBn1d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvBn2d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvBn3d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvBnReLU1d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvBnReLU2d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvBnReLU3d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvReLU1d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvReLU2d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.ConvReLU3d imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.LinearBn1d imported from torch.nn.intrinsic.qat.modules.linear_fused
+? torch.ao.nn.intrinsic.qat.LinearReLU imported from torch.nn.intrinsic.qat.modules.linear_relu
+? torch.ao.nn.intrinsic.qat.freeze_bn_stats imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.qat.update_bn_stats imported from torch.nn.intrinsic.qat.modules.conv_fused
+? torch.ao.nn.intrinsic.quantized.BNReLU2d imported from torch.nn.intrinsic.quantized.modules.bn_relu
+? torch.ao.nn.intrinsic.quantized.BNReLU3d imported from torch.nn.intrinsic.quantized.modules.bn_relu
+? torch.ao.nn.intrinsic.quantized.ConvReLU1d imported from torch.nn.intrinsic.quantized.modules.conv_relu
+? torch.ao.nn.intrinsic.quantized.ConvReLU2d imported from torch.nn.intrinsic.quantized.modules.conv_relu
+? torch.ao.nn.intrinsic.quantized.ConvReLU3d imported from torch.nn.intrinsic.quantized.modules.conv_relu
+? torch.ao.nn.intrinsic.quantized.LinearReLU imported from torch.nn.intrinsic.quantized.modules.linear_relu
+? torch.ao.nn.intrinsic.quantized.dynamic.LinearReLU imported from torch.nn.intrinsic.quantized.dynamic.modules.linear_relu
+? torch.ao.quantization.DeQuantStub imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.FakeQuantizeBase imported from torch.ao.ns.fx.graph_matcher, torch.ao.ns.fx.pattern_utils, torch.ao.ns.fx.utils
+? torch.ao.quantization.FixedQParamsFakeQuantize imported from torch.ao.quantization.fx.prepare
+? torch.ao.quantization.FixedQParamsObserver imported from torch.ao.quantization.fx.prepare
+? torch.ao.quantization.ObserverBase imported from torch.ao.ns.fx.graph_matcher, torch.ao.ns.fx.pattern_utils, torch.ao.ns.fx.utils, torch.ao.quantization.fx.prepare
+? torch.ao.quantization.PerChannelMinMaxObserver imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.PlaceholderObserver imported from torch.ao.quantization.fx.prepare
+? torch.ao.quantization.QConfig imported from torch.ao.quantization.fx.qconfig_mapping_utils, torch.testing._internal.common_quantization
+? torch.ao.quantization.QConfigAny imported from torch.ao.quantization.fx.utils
+? torch.ao.quantization.QConfigMapping imported from torch.ao.ns._numeric_suite_fx, torch.ao.ns.fx.n_shadows_utils, torch.ao.ns.fx.qconfig_multi_mapping, torch.ao.quantization.fx.custom_config, torch.ao.quantization.pt2e.prepare, torch.testing._internal.common_quantization
+? torch.ao.quantization.QuantStub imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.QuantType imported from torch.ao.quantization.fx.utils, torch.testing._internal.common_quantization
+? torch.ao.quantization.QuantWrapper imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.convert imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_dynamic_qat_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_dynamic_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_dynamic_quant_observer imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_embedding_qat_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_observer imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_per_channel_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_symmetric_qnnpack_qat_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.default_weight_observer imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.float_qparams_weight_only_qconfig imported from torch.ao.nn.quantized.modules.embedding_ops, torch.testing._internal.common_quantization
+? torch.ao.quantization.get_default_qat_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.get_default_qat_qconfig_mapping imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.get_default_qconfig imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.get_default_qconfig_mapping imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.propagate_qconfig_ imported from torch.testing._internal.common_quantization
+? torch.ao.quantization.quantize_dynamic_jit imported from torch.testing._internal.common_quantization
+? torch.autograd._functions.Resize imported from torch._tensor
+? torch.device imported from torch.cpu, torch.mtia
+? torch.distributed.ReduceOp imported from torch.distributed.nn.functional
+? torch.distributed._sharded_tensor.ShardedTensor imported from torch.testing._internal.distributed.common_state_dict
+? torch.distributed.group imported from torch.distributed.algorithms.model_averaging.utils, torch.distributed.nn.functional
+? torch.distributed.rpc.RRef imported from torch._jit_internal, torch.distributed.optim.optimizer, torch.nn.parallel.distributed, torch.testing._internal.distributed.rpc.dist_autograd_test, torch.testing._internal.distributed.rpc.examples.reinforcement_learning_rpc_test, torch.testing._internal.distributed.rpc.jit.rpc_test, torch.testing._internal.distributed.rpc.jit.rpc_test_faulty, torch.testing._internal.distributed.rpc.rpc_test
+? torch.distributed.rpc.remote imported from torch.testing._internal.distributed.rpc.examples.reinforcement_learning_rpc_test
+? torch.distributed.rpc.rpc_async imported from torch.testing._internal.distributed.rpc.examples.reinforcement_learning_rpc_test, torch.testing._internal.distributed.rpc.jit.dist_autograd_test
+? torch.distributed.rpc.rpc_sync imported from torch.testing._internal.distributed.rpc.examples.reinforcement_learning_rpc_test
+? torch.multiprocessing._prctl_pr_set_pdeathsig imported from torch.multiprocessing.spawn
+? torch.nn.BatchNorm1d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.BatchNorm2d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.BatchNorm3d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Conv1d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Conv2d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Conv3d imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Linear imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Module imported from torch._dynamo.mutation_guard, torch.ao.quantization.fake_quantize, torch.distributed.nn.api.remote_module, torch.fx.experimental.proxy_tensor, torch.fx.passes.utils.common, torch.jit._recursive, torch.jit._script, torch.jit._trace, torch.optim.swa_utils
+? torch.nn.ModuleDict imported from torch.testing._internal.common_utils
+? torch.nn.ModuleList imported from torch.testing._internal.common_utils
+? torch.nn.ParameterDict imported from torch.testing._internal.common_utils
+? torch.nn.ParameterList imported from torch.testing._internal.common_utils
+? torch.nn.ReLU imported from torch.ao.nn.intrinsic.modules.fused
+? torch.nn.Sequential imported from torch.testing._internal.common_utils
+? torch.nn.TransformerDecoderLayer imported from torch.testing._internal.common_fsdp
+? torch.nn.TransformerEncoderLayer imported from torch.testing._internal.common_fsdp
+? torch.utils._config_typing imported from torch._dynamo.config, torch._functorch.config, torch._inductor.config
+? torch_xla imported from torch._tensor
+? torch_xla.core.xla_model imported from torch._dynamo.testing
+? torch_xla.distributed.spmd imported from torch.distributed.tensor._api
+? torch_xla.stablehlo imported from torch._functorch.fx_minifier
+? torch_xla.utils.dlpack imported from torch._tensor
+? torcharrow.pytorch imported from torch.utils.data.datapipes.iter.callable
+? torchaudio imported from torch.utils.data.datapipes.utils.decoder
+? torchdistx imported from torch.distributed.fsdp._init_utils
+? torchgen.api.types.ArgName imported from torchgen.api.cpp, torchgen.api.dispatcher, torchgen.api.native, torchgen.api.structured, torchgen.api.ufunc
+? torchgen.api.types.ArrayCType imported from torchgen.api.cpp
+? torchgen.api.types.ArrayRefCType imported from torchgen.api.cpp, torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.BaseCType imported from torchgen.api.cpp, torchgen.api.functionalization, torchgen.api.native, torchgen.api.structured, torchgen.api.translate, torchgen.api.ufunc
+? torchgen.api.types.BaseCppType imported from torchgen.api.functionalization, torchgen.api.ufunc
+? torchgen.api.types.BaseTypeToCppMapping imported from torchgen.api.cpp
+? torchgen.api.types.Binding imported from torchgen.api.cpp, torchgen.api.dispatcher, torchgen.api.functionalization, torchgen.api.native, torchgen.api.structured, torchgen.api.translate, torchgen.api.ufunc    
+? torchgen.api.types.CType imported from torchgen.api.cpp, torchgen.api.dispatcher, torchgen.api.functionalization, torchgen.api.native, torchgen.api.ufunc
+? torchgen.api.types.ConstRefCType imported from torchgen.api.cpp, torchgen.api.functionalization, torchgen.api.native, torchgen.api.structured, torchgen.api.translate, torchgen.api.ufunc
+? torchgen.api.types.Expr imported from torchgen.api.translate
+? torchgen.api.types.ListCType imported from torchgen.api.cpp, torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.MutRefCType imported from torchgen.api.cpp, torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.NamedCType imported from torchgen.api.cpp, torchgen.api.dispatcher, torchgen.api.functionalization, torchgen.api.native, torchgen.api.structured, torchgen.api.translate, torchgen.api.ufunc 
+? torchgen.api.types.OptionalCType imported from torchgen.api.cpp, torchgen.api.native, torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.SpecialArgName imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.SymIntT imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.TupleCType imported from torchgen.api.cpp
+? torchgen.api.types.VectorCType imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.boolT imported from torchgen.api.cpp, torchgen.api.functionalization, torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.deviceT imported from torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.dimnameListT imported from torchgen.api.cpp, torchgen.api.structured
+? torchgen.api.types.iOptTensorListRefT imported from torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.iTensorListRefT imported from torchgen.api.cpp, torchgen.api.structured
+? torchgen.api.types.intArrayRefT imported from torchgen.api.cpp, torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.layoutT imported from torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.longT imported from torchgen.api.cpp, torchgen.api.functionalization, torchgen.api.translate
+? torchgen.api.types.memoryFormatT imported from torchgen.api.translate
+? torchgen.api.types.opmath_t imported from torchgen.api.translate
+? torchgen.api.types.optionalIntArrayRefT imported from torchgen.api.cpp, torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.optionalScalarRefT imported from torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.optionalSymIntArrayRefT imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.optionalTensorRefT imported from torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.scalarT imported from torchgen.api.cpp, torchgen.api.native, torchgen.api.structured, torchgen.api.translate, torchgen.api.ufunc
+? torchgen.api.types.scalarTypeT imported from torchgen.api.native, torchgen.api.translate
+? torchgen.api.types.scalar_t imported from torchgen.api.translate
+? torchgen.api.types.symIntArrayRefT imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.tensorListT imported from torchgen.api.cpp
+? torchgen.api.types.tensorOptionsT imported from torchgen.api.cpp, torchgen.api.translate
+? torchgen.api.types.tensorT imported from torchgen.api.cpp, torchgen.api.functionalization, torchgen.api.native, torchgen.api.structured, torchgen.api.translate
+? torchgen.api.types.voidT imported from torchgen.api.cpp
+? torchrec.sparse.jagged_tensor imported from torch._dynamo.variables.user_defined
+? torchvision imported from torch.testing._internal.common_quantization, torch.testing._internal.distributed.distributed_test
+? torchvision.io imported from torch.utils.data.datapipes.utils.decoder
+? torchvision.ops imported from torch._inductor.utils
+? tputil imported from trio._core._multierror
+? traitlets.Any imported from IPython.core.display_trap, IPython.core.history, IPython.core.interactiveshell, IPython.core.magics.script, IPython.terminal.interactiveshell
+? traitlets.Bool imported from IPython.core.application, IPython.core.completer, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.magic, IPython.core.magics.logging, IPython.core.magics.osm, IPython.core.prefilter, IPython.core.profiledir, IPython.core.shellapp, IPython.extensions.storemagic, IPython.lib.latextools, IPython.terminal.embed, IPython.terminal.interactiveshell, IPython.terminal.ipapp, matplotlib_inline.config
+? traitlets.CBool imported from IPython.terminal.embed
+? traitlets.CRegExp imported from IPython.core.prefilter
+? traitlets.CUnicode imported from IPython.core.formatters
+? traitlets.CaselessStrEnum imported from IPython.core.interactiveshell, IPython.core.shellapp
+? traitlets.Dict imported from IPython.core.completer, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.magic, IPython.core.magics.script, IPython.terminal.interactiveshell, matplotlib_inline.config
+? traitlets.DottedObjectName imported from IPython.core.shellapp
+? traitlets.Enum imported from IPython.core.completer, IPython.core.interactiveshell, IPython.terminal.interactiveshell
+? traitlets.Float imported from IPython.core.displayhook, IPython.terminal.interactiveshell
+? traitlets.ForwardDeclaredInstance imported from IPython.core.formatters
+? traitlets.Instance imported from IPython.core.alias, IPython.core.application, IPython.core.builtin_trap, IPython.core.displayhook, IPython.core.extensions, IPython.core.history, IPython.core.interactiveshell, IPython.core.magic, IPython.core.prefilter, IPython.core.shellapp, IPython.terminal.interactiveshell, matplotlib_inline.config
+? traitlets.Int imported from IPython.core.completer
+? traitlets.Integer imported from IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.prefilter, IPython.terminal.interactiveshell
+? traitlets.List imported from IPython.core.alias, IPython.core.application, IPython.core.completer, IPython.core.displaypub, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.magics.script, IPython.core.payload, IPython.core.prefilter, IPython.core.shellapp, IPython.lib.latextools, IPython.terminal.interactiveshell, IPython.terminal.ipapp
+? traitlets.ObjectName imported from IPython.core.formatters
+? traitlets.Set imported from IPython.core.application, matplotlib_inline.config
+? traitlets.TraitError imported from IPython.core.history, matplotlib_inline.config
+? traitlets.Type imported from IPython.core.application, IPython.core.interactiveshell, IPython.terminal.interactiveshell, IPython.terminal.ipapp
+? traitlets.Undefined imported from IPython.core.application
+? traitlets.Unicode imported from IPython.core.application, IPython.core.completer, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.prefilter, IPython.core.profiledir, IPython.core.shellapp, IPython.lib.latextools, IPython.terminal.embed, IPython.terminal.interactiveshell, IPython.utils.colorable, matplotlib_inline.config
+? traitlets.Union imported from IPython.core.completer, IPython.core.history, IPython.terminal.interactiveshell
+? traitlets.config.Application imported from traitlets.log
+? traitlets.config.Configurable imported from IPython.utils.colorable
+? traitlets.config.get_config imported from IPython.lib.latextools
+? traitlets.default imported from IPython.core.application, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.magics.script, IPython.terminal.interactiveshell, IPython.terminal.ipapp
+? traitlets.observe imported from IPython.core.application, IPython.core.completer, IPython.core.formatters, IPython.core.history, IPython.core.interactiveshell, IPython.core.magic, IPython.core.profiledir, IPython.core.shellapp, IPython.terminal.interactiveshell, IPython.terminal.ipapp
+? traitlets.validate imported from IPython.core.interactiveshell, IPython.terminal.interactiveshell
+? transformers imported from torch.onnx._internal.fx.dynamo_graph_extractor, torch.onnx._internal.fx.patcher, torch.testing._internal.common_distributed
+? triton imported from torch._dynamo.logging, torch._dynamo.utils, torch._higher_order_ops.triton_kernel_wrap, torch._inductor.codegen.wrapper, torch._inductor.kernel.mm_common, torch._inductor.kernel.mm_plus_mm, torch._inductor.runtime.autotune_cache, torch._inductor.runtime.coordinate_descent_tuner, torch._inductor.runtime.hints, torch._inductor.runtime.triton_helpers, torch._inductor.runtime.triton_heuristics, torch.sparse._triton_ops, torch.sparse._triton_ops_meta, torch.testing._internal.inductor_utils, torch.testing._internal.triton_utils, torch.utils._triton, whisper.triton_ops
+? triton._C.libtriton.ir imported from torch._higher_order_ops.triton_kernel_wrap
+? triton.backends imported from torch.utils._triton
+? triton.backends.compiler imported from torch._higher_order_ops.triton_kernel_wrap, torch._inductor.runtime.hints, torch._inductor.runtime.triton_heuristics
+? triton.compiler imported from torch._inductor.runtime.triton_heuristics
+? triton.compiler.compiler imported from torch._higher_order_ops.triton_kernel_wrap, torch._inductor.async_compile, torch._inductor.codecache, torch._inductor.codegen.triton, torch._inductor.runtime.hints, torch._inductor.runtime.triton_heuristics, torch.utils._triton
+? triton.compiler.errors imported from torch._inductor.scheduler
+? triton.fb imported from torch._inductor.codecache, torch._inductor.cpp_builder
+? triton.fb.build imported from torch._inductor.codecache
+? triton.language imported from torch._inductor.codegen.triton_split_scan, torch._inductor.codegen.wrapper, torch._inductor.runtime.triton_helpers, torch.sparse._triton_ops, torch.testing._internal.triton_utils, whisper.triton_ops
+? triton.language.extra imported from torch._inductor.runtime.triton_helpers
+? triton.language.extra.cuda imported from torch.utils._triton
+? triton.language.standard imported from torch._inductor.runtime.triton_helpers
+? triton.runtime imported from torch._inductor.utils
+? triton.runtime.autotuner imported from torch._dynamo.variables.builder, torch._higher_order_ops.triton_kernel_wrap, torch._inductor.codecache, torch._inductor.fx_passes.reinplace, torch._inductor.ir, torch._inductor.runtime.triton_heuristics, torch._inductor.select_algorithm, torch._library.triton
+? triton.runtime.cache imported from torch._inductor.runtime.runtime_utils
+? triton.runtime.driver imported from torch.utils._triton
+? triton.runtime.jit imported from torch._dynamo.variables.builder, torch._higher_order_ops.triton_kernel_wrap, torch._inductor.fx_passes.reinplace, torch._inductor.runtime.triton_heuristics, torch._library.triton
+? triton.testing imported from torch._inductor.runtime.benchmarking, torch._inductor.utils, torch._utils_internal
+? triton.tools.experimental_descriptor imported from torch._dynamo.variables.builder, torch._higher_order_ops.triton_kernel_wrap, torch.utils._triton
+? typeshed.stdlib.types imported from setuptools._vendor.typeguard._decorators, typeguard._decorators
+? ujson imported from fsspec.implementations.cache_metadata
+? uri_template imported from jsonschema._format
+? urllib3_secure_extra imported from urllib3
+? webcolors imported from jsonschema._format
+? win32com.gen_py imported from win32com
+? win_inet_pton imported from socks
+? xmlrpclib imported from defusedxml.xmlrpc
+? xmlrunner imported from llvmlite.tests, numba.testing, torch.testing._internal.common_utils
+? xmlrunner.result imported from torch.testing._internal.common_utils
+? yaml.Loader imported from numba.tests.support, numba.tests.test_runtests
+? yapf.yapflib imported from IPython.terminal.interactiveshell
+? z3 imported from torch.fx.experimental.validator
+? zstandard imported from fsspec.compression, urllib3.response, urllib3.util.request
+This is not necessarily a problem - the modules may not be needed on this platform.
+
+Missing dependencies:
+? api-ms-win-core-path-l1-1-0.dll
+? api-ms-win-core-synch-l1-2-0.dll
+? api-ms-win-crt-conio-l1-1-0.dll
+? api-ms-win-crt-convert-l1-1-0.dll
+? api-ms-win-crt-environment-l1-1-0.dll
+? api-ms-win-crt-filesystem-l1-1-0.dll
+? api-ms-win-crt-heap-l1-1-0.dll
+? api-ms-win-crt-locale-l1-1-0.dll
+? api-ms-win-crt-math-l1-1-0.dll
+? api-ms-win-crt-private-l1-1-0.dll
+? api-ms-win-crt-process-l1-1-0.dll
+? api-ms-win-crt-runtime-l1-1-0.dll
+? api-ms-win-crt-stdio-l1-1-0.dll
+? api-ms-win-crt-string-l1-1-0.dll
+? api-ms-win-crt-time-l1-1-0.dll
+? api-ms-win-crt-utility-l1-1-0.dll
+? tbb12.dll
+This is not necessarily a problem - the dependencies may not be needed on this platform.
+
+
+'''
