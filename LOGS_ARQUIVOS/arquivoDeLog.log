@@ -1,0 +1,12 @@
+[02/05/2025 10:48] - Erro ao verificar mutex: module 'win32con' has no attribute 'ERROR_ALREADY_EXISTS'
+[02/05/2025 10:48] - Aplicativo iniciado - Verificação de instância única concluída com sucesso
+[02/05/2025 10:48] - Adicionando o ffmpeg ao PATH: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\Transcrição de textos_BotRegis\ffmpeg
+[02/05/2025 10:48] - Caminho dos modelos: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\Transcrição de textos_BotRegis\whisper_models
+[02/05/2025 10:48] - Criando o layout da janela...
+ Aplicativo lAYOUT iniciado
+[02/05/2025 10:48] - /
+
+[02/05/2025 10:48] - Buscando o arquivo de áudio que usuário escolheu...
+[02/05/2025 10:48] -  📂 Modelo carregado com sucesso!📂
+
+[02/05/2025 11:02] - Removendo arquivo de bloqueio: C:\Users\REGENI~1\AppData\Local\Temp\TranscricaoProducao1.lock

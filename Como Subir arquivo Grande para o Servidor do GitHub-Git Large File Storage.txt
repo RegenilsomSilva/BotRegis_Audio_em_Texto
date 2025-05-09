@@ -1,0 +1,201 @@
+
+Como Subir arquivo Grande para o Servidor do GitHub/Git Large File Storage
+SITE: https://git-lfs.com/
+Baixar Instalar /next -> next ->finix 
+
+
+1°) git lfs install - Dentro do diretório onde o arquivo grande se encontra 
+
+2°) git lfs track "ffmpeg/*"  = Depois digitar o comando git lfs trackt e o nome do arquivo
+
+3°) git lfs push --all origin main  
+4°) git add .
+5) git commit -m "large file to GitHub"
+
+6°) git push -u origin main
+
+
+================================================================================== subindo ====================
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (main)
+$ ls -la
+total 410
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 13:46  ./
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  8 16:52  ../
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 14:59  .git/
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096    684 May  9 14:56  .gitattributes
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  10052 May  2 11:57  DESENVOLVIMENTO_02.py
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 10:39 'FOTOS DO SISTEMA EM AÇÃO'/
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1085 Apr 25 16:34  Modulo_De_Log.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096     43 May  8 17:21  Oi.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   6074 Apr 30 16:35  OldTranscricaoBotRegis.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1256 Apr 25 13:44  README.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  10744 Apr 28 16:35  TranscricaoProducao.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  19274 May  6 10:52  TranscricaoProducao1.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1552 May  8 16:48  Transcricao_MP3_Local.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096    499 Apr 30 16:31  Verificando_arquivo.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 109572 Apr 25 09:18  criar_Executavel
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 13:46  ffmpeg/
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   7742 May  2 11:42  requirements.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   3105 Apr 29 15:13  setup.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 159518 Apr 15 11:36  transformar-audio-em-texto.ico
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 10:22  whisper_models/
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (main)
+$ git checkout Desenvolvimento
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n)
+Sorry, I did not understand your answer. Please type 'y' or 'n'
+Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) n
+Deletion of directory 'whisper_models' failed. Should I try again? (y/n) y
+Deletion of directory 'whisper_models' failed. Should I try again? (y/n) y
+Deletion of directory 'whisper_models' failed. Should I try again? (y/n) y
+Deletion of directory 'whisper_models' failed. Should I try again? (y/n) n
+Switched to branch 'Desenvolvimento'
+n
+n
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ ls -la
+total 402
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 ./
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  8 16:52 ../
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:19 .git/
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  10052 May  2 11:57 DESENVOLVIMENTO_02.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1085 Apr 25 16:34 Modulo_De_Log.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096     43 May  8 17:21 Oi.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   6074 Apr 30 16:35 OldTranscricaoBotRegis.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1256 Apr 25 13:44 README.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  10744 Apr 28 16:35 TranscricaoProducao.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096  19274 May  6 10:52 TranscricaoProducao1.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   1552 May  8 16:48 Transcricao_MP3_Local.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096    499 Apr 30 16:31 Verificando_arquivo.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 109572 Apr 25 09:18 criar_Executavel
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 ffmpeg/
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   7742 May  2 11:42 requirements.txt
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096   3105 Apr 29 15:13 setup.py
+-rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 159518 Apr 15 11:36 transformar-audio-em-texto.ico
+drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 whisper_models/
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git lfs install
+Updated Git hooks.
+Git LFS initialized.
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git lfs track ffmpeg/ffplay.exe
+Tracking "ffmpeg/ffplay.exe"
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git lfs track ffmpeg/ffmpeg.exe
+Tracking "ffmpeg/ffmpeg.exe"
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git lfs track ffmpeg/ffprobe.exe
+Tracking "ffmpeg/ffprobe.exe"
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git add .
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git status
+On branch Desenvolvimento
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitattributes
+
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git commit -m "Segundo versionamento 09-05-2025@Regis"
+[Desenvolvimento 1d6b60c] Segundo versionamento 09-05-2025@Regis
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitattributes
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git push
+fatal: The current branch Desenvolvimento has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin Desenvolvimento
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git push --se^C
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git push --set-upstream origin Desenvolvimento
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 373 bytes | 373.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'Desenvolvimento' on GitHub by visiting:
+remote:      https://github.com/RegenilsomSilva/BotRegis_Audio_em_Texto/pull/new/Desenvolvimento
+remote:
+To https://github.com/RegenilsomSilva/BotRegis_Audio_em_Texto.git
+ * [new branch]      Desenvolvimento -> Desenvolvimento
+branch 'Desenvolvimento' set up to track 'origin/Desenvolvimento'.
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git status
+On branch Desenvolvimento
+Your branch is up to date with 'origin/Desenvolvimento'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ffmpeg/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git add .
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git status
+On branch Desenvolvimento
+Your branch is up to date with 'origin/Desenvolvimento'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   ffmpeg/ffmpeg.exe
+        new file:   ffmpeg/ffplay.exe
+        new file:   ffmpeg/ffprobe.exe
+
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git commit -m "Segundo versionamento 09-05-2025@Regis"
+[Desenvolvimento b8d3327] Segundo versionamento 09-05-2025@Regis
+ 3 files changed, 9 insertions(+)
+ create mode 100644 ffmpeg/ffmpeg.exe
+ create mode 100644 ffmpeg/ffplay.exe
+ create mode 100644 ffmpeg/ffprobe.exe
+
+AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+$ git push --set-upstream origin Desenvolvimento
+Uploading LFS objects: 100% (3/3), 444 MB | 0 B/s, done.
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 770 bytes | 385.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/RegenilsomSilva/BotRegis_Audio_em_Texto.git
+   1d6b60c..b8d3327  Desenvolvimento -> Desenvolvimento
+branch 'Desenvolvimento' set up to track 'origin/Desenvolvimento'.
