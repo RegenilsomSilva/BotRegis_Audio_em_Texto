@@ -36,8 +36,8 @@ Este aplicativo permite transcrever áudios automaticamente usando inteligência
 
 ## 👤 Desenvolvedor
 
-**Nome:** Regenilson Silveira  
-**Versão:** 1.5
-**Data:** 25-04-2025
+**Nome:** Regis Silveira  
+**Versão:** 1.7
+**Data:** 09-05-2025
 **GitHub:** [github.com/RegisSilveira]  
 **Contato:** [regenilsom.vcdevaprender@gmail.com]
