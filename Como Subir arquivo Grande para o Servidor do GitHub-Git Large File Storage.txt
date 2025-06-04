@@ -17,7 +17,7 @@ Baixar Instalar /next -> next ->finix
 
 ================================================================================== subindo ====================
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (main)
+
 $ ls -la
 total 410
 drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 13:46  ./
@@ -41,7 +41,7 @@ drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 13:46  ffmpeg/
 -rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 159518 Apr 15 11:36  transformar-audio-em-texto.ico
 drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 10:22  whisper_models/
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (main)
+AzureAD/AUTOMACAO/BotRegis_Transcrição_De_Texto (main)
 $ git checkout Desenvolvimento
 Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
 Deletion of directory 'ffmpeg' failed. Should I try again? (y/n) y
@@ -65,7 +65,7 @@ Deletion of directory 'whisper_models' failed. Should I try again? (y/n) n
 Switched to branch 'Desenvolvimento'
 n
 n
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ ls -la
 total 402
 drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 ./
@@ -87,27 +87,27 @@ drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 ffmpeg/
 -rw-r--r-- 1 AzureAD+RegenilsonSilveira 4096 159518 Apr 15 11:36 transformar-audio-em-texto.ico
 drwxr-xr-x 1 AzureAD+RegenilsonSilveira 4096      0 May  9 15:18 whisper_models/
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git lfs install
 Updated Git hooks.
 Git LFS initialized.
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git lfs track ffmpeg/ffplay.exe
 Tracking "ffmpeg/ffplay.exe"
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git lfs track ffmpeg/ffmpeg.exe
 Tracking "ffmpeg/ffmpeg.exe"
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureADÁrea de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git lfs track ffmpeg/ffprobe.exe
 Tracking "ffmpeg/ffprobe.exe"
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureADS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git add .
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git status
 On branch Desenvolvimento
 Changes to be committed:
@@ -115,13 +115,13 @@ Changes to be committed:
         new file:   .gitattributes
 
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git commit -m "Segundo versionamento 09-05-2025@Regis"
 [Desenvolvimento 1d6b60c] Segundo versionamento 09-05-2025@Regis
  1 file changed, 3 insertions(+)
  create mode 100644 .gitattributes
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git push
 fatal: The current branch Desenvolvimento has no upstream branch.
 To push the current branch and set the remote as upstream, use
@@ -132,10 +132,10 @@ To have this happen automatically for branches without a tracking
 upstream, see 'push.autoSetupRemote' in 'git help config'.
 
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git push --se^C
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git push --set-upstream origin Desenvolvimento
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
@@ -152,7 +152,7 @@ To https://github.com/RegenilsomSilva/BotRegis_Audio_em_Texto.git
  * [new branch]      Desenvolvimento -> Desenvolvimento
 branch 'Desenvolvimento' set up to track 'origin/Desenvolvimento'.
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git status
 On branch Desenvolvimento
 Your branch is up to date with 'origin/Desenvolvimento'.
@@ -163,10 +163,10 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git add .
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git status
 On branch Desenvolvimento
 Your branch is up to date with 'origin/Desenvolvimento'.
@@ -178,7 +178,7 @@ Changes to be committed:
         new file:   ffmpeg/ffprobe.exe
 
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git commit -m "Segundo versionamento 09-05-2025@Regis"
 [Desenvolvimento b8d3327] Segundo versionamento 09-05-2025@Regis
  3 files changed, 9 insertions(+)
@@ -186,7 +186,7 @@ $ git commit -m "Segundo versionamento 09-05-2025@Regis"
  create mode 100644 ffmpeg/ffplay.exe
  create mode 100644 ffmpeg/ffprobe.exe
 
-AzureAD+RegenilsonSilveira@MTZ-TI-DESK-RE MINGW64 ~/OneDrive - SERVGAS/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
+AzureAD/Área de Trabalho/AUTOMACAO/BotRegis_Transcrição_De_Texto (Desenvolvimento)
 $ git push --set-upstream origin Desenvolvimento
 Uploading LFS objects: 100% (3/3), 444 MB | 0 B/s, done.
 Enumerating objects: 7, done.

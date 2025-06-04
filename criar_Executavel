@@ -27,7 +27,7 @@ if sys.platform == "win32":
 
 setup(
     name="Transcricao-Audio",
-    version="1.0",
+    version="4.5.5",
     description="Aplicativo de Transcrição de Áudio com IA",
     options={"build_exe": build_exe_options},
     executables=[Executable("DESENVOLVIMENTO.PY", base=base, target_name="Transcricao.exe", icon=None)]

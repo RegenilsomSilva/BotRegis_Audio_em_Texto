@@ -170,11 +170,11 @@ def configurar_ambiente():
         print('Apenas execute isso se NÃO estiver no executável')
         print(os.linesep)
         print('Desativamos o meipass para evitar problemas de importação...')
-        # if not hasattr(sys, "_MEIPASS"):
-        #     subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "whisper"])
-        #     log.info('Whisper instalado/atualizado com sucesso!\n')
-        # else:
-        #     log.critical('Executando como aplicativo compilado, pulando atualização do Whisper\n')     
+        if not hasattr(sys, "_MEIPASS"):
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "whisper"])
+            log.info('Whisper instalado/atualizado com sucesso!\n')
+        else:
+            log.critical('Executando como aplicativo compilado, pulando atualização do Whisper\n')     
     except:
         log.info(f"\{os.linesep}")
         log.info(f"Ocorreu um erro ao instalar/atualizar o Whisper: {e}\n")
