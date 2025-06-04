@@ -1,4 +1,4 @@
-# Transcrição de Áudio com IA - Versão 1.5
+# Transcrição de Áudio com IA - Versão 4.5.5
 
 Este aplicativo permite transcrever áudios automaticamente usando inteligência artificial (modelo Whisper).
 
@@ -37,7 +37,7 @@ Este aplicativo permite transcrever áudios automaticamente usando inteligência
 ## 👤 Desenvolvedor
 
 **Nome:** Regis Silveira  
-**Versão:** 1.7
-**Data:** 09-05-2025
+**Versão:** 4.5.5
+**Data:** 03-06-2025
 **GitHub:** [github.com/RegisSilveira]  
 **Contato:** [regenilsom.vcdevaprender@gmail.com]

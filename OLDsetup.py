@@ -61,7 +61,7 @@ executables = [
 
 setup(
     name="Transcricao-Audio",
-    version="1.7",
+    version="4.5.5",
     description="Aplicativo de Transcrição de Áudio com IA",
     author="Regis Bot",
     options={"build_exe": build_exe_options},
@@ -73,3 +73,6 @@ print("1. Após a compilação, verifique a pasta 'build/TranscricaoProducao1'")
 print("2. Certifique-se de que as pastas 'whisper_models' e 'ffmpeg' contêm os arquivos necessários")
 print("3. Se estiver usando o instalador, copie toda a pasta 'build/TranscricaoProducao1' para o instalador")
 print("=======================\n")
+
+
+# Backup de Setup que também está funcionando, mas com menos dependências
