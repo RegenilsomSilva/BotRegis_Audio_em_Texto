@@ -16,7 +16,7 @@ print(os.linesep)
 data_ano = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
 print('Verificando se o arquivo de áudio existe...')
 # Verifique se o arquivo de áudio existe
-audio_file ='Pastor Matheus 06-05-25.mp3'
+audio_file ='Reunião .mp3'
 if not os.path.exists(audio_file):
     raise FileNotFoundError(f"O arquivo de áudio '{audio_file}' não foi encontrado.")
 
@@ -32,12 +32,12 @@ if result and result.get("text"):
     for sentence in result["text"].split('.'):
         print(sentence)
 
-    with open('Reunião -​ Pastor Matheus 06-05-25 Medium.txt', "w") as result_text_file:
+    with open('Reunião -​ Reunião com o 5.txt', "w") as result_text_file:
         text = result["text"].split('.')
         for sentence in text:
             result_text_file.write(sentence)
             result_text_file.write('\n')
     print(f'Terminamos a trascrição do áudio no DIA: {data_ano}.')   
-    print(f'O arquivo de texto foi salvo como: Reunião 29-04-2025-medium.txt')     
+    print(f'O arquivo de texto foi salvo como: Reunião com o -medium.txt')     
 else:
     print("Nenhum texto foi transcrito do áudio.")

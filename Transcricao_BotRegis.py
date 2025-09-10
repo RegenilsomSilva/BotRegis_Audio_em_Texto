@@ -1,11 +1,13 @@
+
 import os 
-import whisper
-import PySimpleGUI as sg
+import whisper 
+import tiktoken
+import PySimpleGUI as sg 
 import datetime
 from datetime import datetime
 import sys
-from numba import cuda
-from numba import config
+from numba import cuda 
+from numba import config 
 import subprocess
 import ffmpeg
 from Modulo_De_Log import log
@@ -13,17 +15,31 @@ import tempfile
 import atexit
 import time
 import random
-import psutil
-import win32api
-import win32con
-import win32event
+import psutil            
+import win32api         
+import win32con   
+import win32event       
 import threading
 import wave
 import shutil
 import hashlib
 from limpeza_de_cache_do_sistema import limpar_cache_completo
+from check_dependenccia_Antes import Verifique_os_requisitos_do_sistema
 
+'''
+# Para instalar as dependências necessárias do projeto, execute o seguinte comando no terminal:
+    # Create virtual environment
+    python -m venv .env
 
+    # Activate virtual environment (Windows)
+    .env\Scripts\activate
+
+    # Install requirements
+    python -m pip install -r requirements.txt
+    Se você precisar especificamente de suporte a CUDA, 
+    poderá instalá-lo separadamente após a instalação básica:
+    python -m pip install torch==2.0.1+cu118 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
+'''
 
 # variáveis Globais para o Controle do Progresso 
 transcription_active    = False
@@ -36,7 +52,7 @@ def create_singleton():
     O Singleton é um pradrão de projeto criacional, que tem como objetivo garantir que uma classe tenha apenas
     uma insta
     '''
-    app_name   = 'Inteligencia_IA_Claude'
+    app_name   = 'Transcricao_BotRegis'
     mutex_name = f"Global\\{app_name}Mutex"
     try:
         mutex = win32event.CreateMutex(None, 0, mutex_name)
@@ -407,8 +423,9 @@ def transcrever_audio(audio_file, modelo_escolhido, window):
     '''
     global transcription_active, transcription_progress, transcription_complete
     try:
-        print(f"🎯 Iniciando transcrição com modelo {modelo_escolhido}...")
-        log.info(f"🎯 Iniciando transcrição com modelo {modelo_escolhido}...")
+        data_ano = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+        print(f"🎯 Iniciando transcrição as {data_ano} com modelo {modelo_escolhido}...")
+        log.info(f"🎯 Iniciando transcrição com modelo as {data_ano} {modelo_escolhido}...")
         
         # Carregar modelo com sistema robusto de retry
         model, modelo_usado = carregar_modelo_com_retry(modelo_escolhido)
@@ -457,6 +474,11 @@ def main():
         sys.exit(0)
     log.info("Aplicativo iniciado - verificação de instancia única com sucesso.")
     configurar_ambiente()
+    # Verifique as dependências primeiro
+    if not Verifique_os_requisitos_do_sistema():
+        sg.popup("As dependências necessárias estão ausentes!\nInstale os componentes ausentes..", 
+                 title="Dependências Ausentes")
+        # sys.exit(1)
     
     # Cria a janela principal
     sg.theme('DarkBlue')
