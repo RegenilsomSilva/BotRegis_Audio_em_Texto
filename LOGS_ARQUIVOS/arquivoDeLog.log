@@ -1,24 +1,15 @@
-[03/06/2025 22:49] - Erro ao Criar Mutex module 'win32con' has no attribute 'ERROR_ALREADY_EXISTS'
-[03/06/2025 22:49] - Aplicativo iniciado - verificação de instancia única com sucesso.
-[03/06/2025 22:49] - Atualizando o Whisper para a versão mais recente.
-[03/06/2025 22:49] - Pysinstaller não detectado, ele não cria uma pasta TEMP e armazena o caminho em _MEIPASS.
-[03/06/2025 22:49] - Adicionando o caminho do FFmpeg ao PATH do sistema: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\BotRegis_Transcrição_De_Texto\ffmpeg
-[03/06/2025 22:49] - Caminho do FFmpeg adicionado com sucesso.
-[03/06/2025 22:49] - Criando o layout da janela...
+[09/09/2025 21:37] - Erro ao Criar Mutex module 'win32con' has no attribute 'ERROR_ALREADY_EXISTS'
+[09/09/2025 21:37] - Aplicativo iniciado - verificação de instancia única com sucesso.
+[09/09/2025 21:37] - Atualizando o Whisper para a versão mais recente.
+[09/09/2025 21:37] - Pysinstaller não detectado, ele não cria uma pasta TEMP e armazena o caminho em _MEIPASS.
+[09/09/2025 21:37] - Adicionando o caminho do FFmpeg ao PATH do sistema: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\BotRegis_Transcrição_De_Texto\ffmpeg
+[09/09/2025 21:37] - Caminho do FFmpeg adicionado com sucesso.
+[09/09/2025 21:37] - Criando o layout da janela...
  Aplicativo lAYOUT iniciado
-[03/06/2025 22:50] - Buscando o arquivo de áudio que usuário escolheu...
-[03/06/2025 22:50] - 🎯 Iniciando transcrição com modelo large...
-[03/06/2025 22:59] - 🎙️ Executando transcrição com o modelo: large
-[04/06/2025 01:48] - 📝 Transcrição concluída com sucesso! 📝
-[04/06/2025 01:48] - Resultado da transcrição ==> áudio:MP3 -> Modelo: large
-🎯 Iniciando transcrição com modelo large...
-🔄 Tentativa 1 de 3 Para carregar o modelo: large.....
-📥 Baixando/carregando modelo large...
-🔍 Testando modelo carregado...
-C:\Users\RegenilsonSilveira\AppData\Local\Programs\Python\Python311\Lib\site-packages\whisper\transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-✅ Modelo large carregado e testado com sucesso na tentativa 1!
-🎙️ Executando transcrição com o modelo: large
-📝 Transcrição concluída com sucesso! 📝
-Resultado da transcrição ==> áudio:MP3 -> Modelo: large
-
+[09/09/2025 21:38] - Buscando o arquivo de áudio que usuário escolheu...
+[09/09/2025 21:38] - 🎯 Iniciando transcrição com modelo as 09-09-2025 21:38:14 large...
+[09/09/2025 21:42] - 🎙️ Executando transcrição com o modelo: large
+[09/09/2025 23:35] - 📝 Transcrição concluída com sucesso! 📝
+[09/09/2025 23:35] - Resultado da transcrição ==> áudio:MP3 -> Modelo: large
+[10/09/2025 17:09] - Aplicativo encerrado
+[10/09/2025 17:09] - Removendo arquivo de Bloqueio:C:\Users\REGENI~1\AppData\Local\Temp\Transcricao_BotRegis.lock
