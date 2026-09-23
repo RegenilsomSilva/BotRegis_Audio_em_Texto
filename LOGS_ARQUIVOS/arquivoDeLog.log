@@ -1,15 +1,13 @@
-[09/09/2025 21:37] - Erro ao Criar Mutex module 'win32con' has no attribute 'ERROR_ALREADY_EXISTS'
-[09/09/2025 21:37] - Aplicativo iniciado - verificação de instancia única com sucesso.
-[09/09/2025 21:37] - Atualizando o Whisper para a versão mais recente.
-[09/09/2025 21:37] - Pysinstaller não detectado, ele não cria uma pasta TEMP e armazena o caminho em _MEIPASS.
-[09/09/2025 21:37] - Adicionando o caminho do FFmpeg ao PATH do sistema: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\BotRegis_Transcrição_De_Texto\ffmpeg
-[09/09/2025 21:37] - Caminho do FFmpeg adicionado com sucesso.
-[09/09/2025 21:37] - Criando o layout da janela...
+[07/10/2025 20:58] - Erro ao Criar Mutex module 'win32con' has no attribute 'ERROR_ALREADY_EXISTS'
+[07/10/2025 20:58] - Aplicativo iniciado - verificação de instancia única com sucesso.
+[07/10/2025 20:58] - Atualizando o Whisper para a versão mais recente.
+[07/10/2025 20:58] - Pysinstaller não detectado, ele não cria uma pasta TEMP e armazena o caminho em _MEIPASS.
+[07/10/2025 20:58] - Adicionando o caminho do FFmpeg ao PATH do sistema: C:\Users\RegenilsonSilveira\OneDrive - SERVGAS\Área de Trabalho\AUTOMACAO\BotRegis_Transcrição_De_Texto\ffmpeg
+[07/10/2025 20:58] - Caminho do FFmpeg adicionado com sucesso.
+[07/10/2025 20:58] - Criando o layout da janela...
  Aplicativo lAYOUT iniciado
-[09/09/2025 21:38] - Buscando o arquivo de áudio que usuário escolheu...
-[09/09/2025 21:38] - 🎯 Iniciando transcrição com modelo as 09-09-2025 21:38:14 large...
-[09/09/2025 21:42] - 🎙️ Executando transcrição com o modelo: large
-[09/09/2025 23:35] - 📝 Transcrição concluída com sucesso! 📝
-[09/09/2025 23:35] - Resultado da transcrição ==> áudio:MP3 -> Modelo: large
-[10/09/2025 17:09] - Aplicativo encerrado
-[10/09/2025 17:09] - Removendo arquivo de Bloqueio:C:\Users\REGENI~1\AppData\Local\Temp\Transcricao_BotRegis.lock
+[07/10/2025 20:59] - Buscando o arquivo de áudio que usuário escolheu...
+[07/10/2025 20:59] - 🎯 Iniciando transcrição com modelo as 07-10-2025 20:59:24 large...
+[07/10/2025 21:08] - 🎙️ Executando transcrição com o modelo: large
+[07/10/2025 21:37] - 📝 Transcrição concluída com sucesso! 📝
+[07/10/2025 21:37] - Resultado da transcrição ==> áudio:MP3 -> Modelo: large
